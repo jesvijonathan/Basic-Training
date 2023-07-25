@@ -2,8 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
-#include <fstream>
+#include <vector> 
 #include <algorithm>
 #include <windows.h>
 #include <conio.h>
@@ -42,7 +41,7 @@ int* getTime() {
     return dateArr;
 }
 
-void mainMenu() {
+void TrainingManager() {
     vector<string> menuOptions = { "Add new course", "Add new employee", "Enroll employee in course", "Generate report", "Exit" };
 
     Menu menu(menuOptions, "Training Management Application\n\nMain Menu\n", "Press 'Enter' to select an option or 'q' to quit :");
@@ -78,7 +77,7 @@ int main() {
     SetConsoleTitle("Worldline - Training Management Application");
 
     while (true) {
-        mainMenu();
+        TrainingManager();
     }
 
     system("pause");
