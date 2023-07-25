@@ -1,63 +1,70 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <map>
+#include <algorithm>
+#include <deque> 
 
-// Forward declaration of classes
 class Employee;
 class Course;
 
 class Enrollment {
-private:
-    const Employee& employee; // Reference to the enrolled employee
-    const Course& course;     // Reference to the enrolled course
-
 public:
-    // Constructor: Initializes the enrollment with employee and course references
-    Enrollment(const Employee& emp, const Course& crs) : employee(emp), course(crs) {}
+    Enrollment(Employee* employee, Course* course) : employee(employee), course(course) {
+    }
 
-    // Destructor: No dynamic memory to release, so it's not necessary to define it explicitly
-    // However, it's good practice to have it in the header.
+    ~Enrollment() {
+        delete employee;
+        delete course;
+    }
 
-    // Getter functions
-    const Employee& getEmployee() const {
+    Employee* getEmployee() const {
         return employee;
     }
 
-    const Course& getCourse() const {
+    Course* getCourse() const {
         return course;
     }
-};
 
-// For demonstration purposes, let's define the Employee and Course classes as well
-
-class Employee {
 private:
-    std::string name;
-    std::string position;
-    // Other relevant details related to an employee
-
-public:
-    // Constructor
-    Employee(const std::string& empName, const std::string& empPosition)
-        : name(empName), position(empPosition) {}
-
-    // Add more functions and data members as needed
+    Employee* employee;
+    Course* course;
 };
 
-class Course {
+class EnrollmentManager {
+public:
+    EnrollmentManager() {
+    }
+
+    ~EnrollmentManager() {
+        for (auto it = enrollments.begin(); it != enrollments.end(); ++it) {
+            delete it->second;
+        }
+    }
+
+    void addEnrollment(Enrollment* enrollment) {
+        enrollments.insert(std::pair<int, Enrollment*>(enrollment->getEmployee()->getId(), enrollment));
+    }
+
+    void removeEnrollment(int employeeId) {
+        enrollments.erase(employeeId);
+    }
+
+    Enrollment* getEnrollment(int employeeId) {
+        return enrollments[employeeId];
+    }
+
+    std::map<int, Enrollment*> getEnrollments() const {
+        return enrollments;
+    }
+
 private:
-    std::string title;
-    std::string description;
-    std::string instructor;
-    // Other relevant details related to a course
-
-public:
-    // Constructor
-    Course(const std::string& crsTitle, const std::string& crsDescription, const std::string& crsInstructor)
-        : title(crsTitle), description(crsDescription), instructor(crsInstructor) {}
-
-    // Add more functions and data members as needed
+    std::map<int, Enrollment*> enrollments;
 };
+
+
+
 
 
 /*

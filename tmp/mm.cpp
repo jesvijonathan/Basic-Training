@@ -11,8 +11,7 @@ int arrow_menu(const std::vector<std::string>& options) {
     int selectedOption = 0;
 
     while (true) {
-        system("cls"); // Clear the console (for Windows)
-        // Use "system("clear")" for Unix-like systems
+        system("cls");
 
         std::cout << "Menu:\n";
         for (int i = 0; i < options.size(); ++i) {
@@ -28,15 +27,13 @@ int arrow_menu(const std::vector<std::string>& options) {
         char ch = 0;
         ch = _getch();
         if (ch == 0 || ch == -32) {
-            ch = _getch(); // Get the extended key code
             switch (ch) {
             case KEY_UP:
-                // Move the arrow up (unless at the first option)
                 if (selectedOption > 0)
                     --selectedOption;
                 break;
             case KEY_DOWN:
-                // Move the arrow down (unless at the last option)
+
                 if (selectedOption < options.size() - 1)
                     ++selectedOption;
                 break;
@@ -45,10 +42,10 @@ int arrow_menu(const std::vector<std::string>& options) {
             }
         }
         else if (ch == KEY_ENTER) {
-            return selectedOption; // Return the selected option index
+            return selectedOption;
         }
         else if (ch == 'q' || ch == 'Q') {
-            return -1; // Return -1 to indicate quitting
+            return -1;
         }
     }
 }
