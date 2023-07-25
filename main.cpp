@@ -35,7 +35,7 @@ int* getTime() {
     int currentMonth = 1 + ltm->tm_mon;
     int currentYear = 1900 + ltm->tm_year;
 
-    int* dateArr = new int[3]; // Dynamically allocate memory for the array
+    int* dateArr = new int[3];
     dateArr[0] = currentDay;
     dateArr[1] = currentMonth;
     dateArr[2] = currentYear;

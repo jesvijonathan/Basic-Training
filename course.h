@@ -84,7 +84,7 @@ private:
     static int currentId;
 };
 
-int Course::currentId = 0; // Initializing the static member outside the class definition 
+int Course::currentId = 0;
 
 
 void courseMenu() {

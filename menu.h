@@ -80,6 +80,3 @@ private:
     string option_text;
     string option_enter;
 };
-
-// a arrow drriven menu with options name, description, date, title. when you press 'enter', it allows you to enter a string near the option and store the option
-

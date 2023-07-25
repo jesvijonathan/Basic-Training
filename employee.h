@@ -92,7 +92,7 @@ private:
     static int currentId;
 };
 
-int Employee::currentId = 0; // Initializing the static member outside the class definition
+int Employee::currentId = 0;
 
 
 
