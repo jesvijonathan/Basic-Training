@@ -166,15 +166,3 @@ void employeeMenu() {
 
 
 
-
-
-/*
-
-• A class called Employee that represents an individual employee. The class should have a constructor
-that initializes the employee with a name, position, department, and other relevant details. The class
-should also have a destructor that deallocates any memory used by the object.
-
-• An array of objects of type Employee that stores the employees. The array should be dynamically
-allocated on the heap using a smart pointer to manage memory.
-
-*/
