@@ -5,7 +5,8 @@
 #include <algorithm>
 #include <windows.h>
 #include <conio.h>
-#include <stdlib.h>
+#include <stdlib.h>   
+#include <map>
 
 using namespace std;
 
@@ -13,14 +14,15 @@ int* getTime();
 
 class Employee {
 public:
-
-    Employee(const string& name, const string& position, const string& department, const string& joinDate, const int& age, const int& salary)
-        : name(name), position(position), department(department), joinDate(joinDate), age(age), salary(salary) {
+    // constructor
+    Employee(const string& name, const string& position, const string& department, const string& joinDate, const int& age, const int& percent)
+        : name(name), position(position), department(department), joinDate(joinDate), age(age), percent(percent) {
         id = ++currentId;
+        logger->log("Employee " + to_string(id) + " created");
     }
-
+    // destructor
     ~Employee() {
-        cout << "Employee destructor called\n";
+        logger->log("Employee " + to_string(id) + " deleted");
         currentId--;
     }
 
@@ -52,8 +54,8 @@ public:
         return age;
     }
 
-    int getSalary() const {
-        return salary;
+    int getPercent() const {
+        return percent;
     }
 
     void setName(const string& name) {
@@ -76,8 +78,8 @@ public:
         this->age = age;
     }
 
-    void setSalary(const int& salary) {
-        this->salary = salary;
+    void setPercent(const int& percent) {
+        this->percent = percent;
     }
 
 private:
@@ -87,13 +89,14 @@ private:
     string department;
     string joinDate;
     int age;
-    int salary;
+    int percent;
 
     static int currentId;
 };
 
 int Employee::currentId = 0;
 
+vector<Employee*> employees;
 
 
 void employeeMenu() {
@@ -102,12 +105,13 @@ void employeeMenu() {
 
     Employee* employee = new Employee("", "", "", dateStr, 0, 0);
 
-    vector<string> menuData = { to_string(employee->getId()), employee->getName(), employee->getPosition(), employee->getDepartment(), employee->getJoinDate(), to_string(employee->getAge()), to_string(employee->getSalary()) };
+    vector<string> menuData = { to_string(employee->getId()), employee->getName(), employee->getPosition(), employee->getDepartment(), employee->getJoinDate(), to_string(employee->getAge()), to_string(employee->getPercent()) };
     vector<string> menuOptions;
 
     int selectedOption = 0;
+
     while (true) {
-        menuOptions = { "Name : " + menuData[1], "Position : " + menuData[2], "Department : " + menuData[3], "Join Date : " + menuData[4], "Age : " + menuData[5], "Salary : " + menuData[6], "Save" };
+        menuOptions = { "Name : " + menuData[1], "Position : " + menuData[2], "Department : " + menuData[3], "Join Date : " + menuData[4], "Age : " + menuData[5], "Percent : " + menuData[6], "Save" };
         Menu menu(
             menuOptions,
             "\n\nMain Menu / Add Empoyee :\n\n  ID : " + menuData[0],
@@ -138,31 +142,98 @@ void employeeMenu() {
             getline(cin, menuData[5]);
             break;
         case 5:
-            cout << "Salary : ";
+            cout << "Percent : ";
             getline(cin, menuData[6]);
             break;
         case 6:
         case -2:
+            // relevant data  
             employee->setName(menuData[1]);
             employee->setPosition(menuData[2]);
             employee->setDepartment(menuData[3]);
             employee->setJoinDate(menuData[4]);
             employee->setAge(stoi(menuData[5]));
-            employee->setSalary(stoi(menuData[6]));
-            cout << "Returning...\n";
+            employee->setPercent(stoi(menuData[6]));
+            employees.push_back(new Employee(*employee));
+            logger->log("Employee created & saved");
             return;
             break;
         default:
             employee->~Employee();
-            cout << "Returning...\n";
+            logger->log("Employee not created");
             return;
         }
     }
-    cout << "Returing...\n";
+
+
     return;
-
-
 }
 
+int* printTableHeader(int* columnLengths, const vector<string>& headers);
+
+namespace emp {
 
 
+    // passing by reference | function overloading
+    int* calculateColumnLengths(const vector<Employee*>& employees, int* columnLengths = new int[7] {0}) {
+
+        // auto type assigning / templates 
+        for (const auto& employee : employees) {
+            columnLengths[0] = max(columnLengths[0], static_cast<int>(to_string(employee->getId()).length()));
+            columnLengths[1] = max(columnLengths[1], static_cast<int>(employee->getName().length()));
+            columnLengths[2] = max(columnLengths[2], static_cast<int>(employee->getPosition().length()));
+            columnLengths[3] = max(columnLengths[3], static_cast<int>(employee->getDepartment().length()));
+            columnLengths[4] = max(columnLengths[4], static_cast<int>(employee->getJoinDate().length()));
+            columnLengths[5] = max(columnLengths[5], static_cast<int>(to_string(employee->getAge()).length()));
+            columnLengths[6] = max(columnLengths[6], static_cast<int>(to_string(employee->getPercent()).length()));
+        }
+
+        return columnLengths;
+    }
+
+
+    void EmployeesDataTable(const int* columnLengths, boolean reversed = false) {
+
+        // print employee data
+        for (const auto& employee : employees) {
+            cout << " " << setw(columnLengths[0]) << employee->getId() << " | "
+                << setw(columnLengths[1]) << employee->getName() << " | "
+                << setw(columnLengths[2]) << employee->getPosition() << " | "
+                << setw(columnLengths[3]) << employee->getDepartment() << " | "
+                << setw(columnLengths[4]) << employee->getJoinDate() << " | "
+                << setw(columnLengths[5]) << employee->getAge() << " | "
+                << setw(columnLengths[6]) << employee->getPercent() << " |\n";
+        }
+
+        delete[] columnLengths;
+    }
+    void generateEmployeeReport() {
+        multimap<double, Employee> employeeMap;
+        // insert based on percent, highest to lowest (descending)
+
+        for (const auto& employee : employees) {
+            employeeMap.insert(pair<double, Employee>(employee->getPercent(), *employee));
+        }
+
+        int* columnLengths = new int[7] {0};
+        vector<string> headers = { "ID", "Name", "Position", "Department", "Join Date", "Age", "Percent" };
+        columnLengths = calculateColumnLengths(employees, columnLengths);
+        columnLengths = printTableHeader(columnLengths, headers);
+
+        multimap<double, Employee>::reverse_iterator it;
+
+        for (it = employeeMap.rbegin(); it != employeeMap.rend(); it++) {
+            cout << " " << setw(columnLengths[0]) << it->second.getId() << " | "
+                << setw(columnLengths[1]) << it->second.getName() << " | "
+                << setw(columnLengths[2]) << it->second.getPosition() << " | "
+                << setw(columnLengths[3]) << it->second.getDepartment() << " | "
+                << setw(columnLengths[4]) << it->second.getJoinDate() << " | "
+                << setw(columnLengths[5]) << it->second.getAge() << " | "
+                << setw(columnLengths[6]) << it->second.getPercent() << " |\n";
+        }
+
+        cout << "\n\n";
+
+
+    }
+};

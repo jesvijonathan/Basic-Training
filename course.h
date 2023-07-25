@@ -6,21 +6,26 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <iomanip> // for setw
+
 
 using namespace std;
 
 int* getTime();
-
 class Course {
 public:
+    // constructor
     Course(const string& title, const string& description, const string& instructor, const string& startDate, const string& endDate)
         : title(title), description(description), instructor(instructor), startDate(startDate), endDate(endDate) {
         id = ++currentId;
+        logger->log("Course " + to_string(id) + " created");
     }
 
+    // destructor
     ~Course() {
+        logger->log("Course " + to_string(id) + " deleted");
         currentId--;
-        cout << "Course destructor called\n";
+
     }
 
     static int getCurrentId() {
@@ -87,10 +92,15 @@ private:
 int Course::currentId = 0;
 
 
+
+vector<Course*> courses;
+
+
 void courseMenu() {
     int* date = getTime();
     string dateStr = to_string(date[0]) + "/" + to_string(date[1]) + "/" + to_string(date[2]);
 
+    // smart poniters
     Course* course = new Course("", "", "", dateStr, dateStr);
 
     vector<string> menuData = { to_string(course->getId()), course->getTitle(), course->getDescription(), course->getInstructor(), course->getStartDate(), course->getEndDate() };
@@ -112,7 +122,6 @@ void courseMenu() {
         switch (selectedOption) {
         case 0:
             cout << "Title : ";
-            // getline
             getline(cin, menuData[1]);
             break;
         case 1:
@@ -133,25 +142,65 @@ void courseMenu() {
             break;
         case 5:
         case -2:
-            cout << "Saving..";
+            // relevant data 
             course->setTitle(menuData[1]);
             course->setDescription(menuData[2]);
             course->setInstructor(menuData[3]);
             course->setStartDate(menuData[4]);
             course->setEndDate(menuData[5]);
-            cout << "Returning...\n";
+            courses.push_back(course);
+            logger->log("Course created & saved");
             return;
             break;
         default:
             delete course;
-            cout << "Returning...\n";
+            logger->log("Course creation cancelled");
             return;
         }
     }
 
-    cout << "Returning...\n";
+    logger->log("Returning to main menu");
     return;
-
-
-
 }
+// names space
+namespace crs {
+    // passing by reference | function overloading
+    int* calculateColumnLengths(const vector<Course*>& courses, int* columnLengths = new int[7] {0}) {
+
+        // auto type assigning / templates 
+        for (const auto& course : courses) {
+            columnLengths[0] = max(columnLengths[0], static_cast<int>(to_string(course->getId()).length()));
+            columnLengths[1] = max(columnLengths[1], static_cast<int>(course->getTitle().length()));
+            columnLengths[2] = max(columnLengths[2], static_cast<int>(course->getDescription().length()));
+            columnLengths[3] = max(columnLengths[3], static_cast<int>(course->getInstructor().length()));
+            columnLengths[4] = max(columnLengths[4], static_cast<int>(course->getStartDate().length()));
+            columnLengths[5] = max(columnLengths[5], static_cast<int>(course->getEndDate().length()));
+        }
+
+        return columnLengths;
+    }
+    void CoursesDataTable(const int* columnLengths) {
+
+        for (const auto& course : courses) {
+            cout << " " << setw(columnLengths[0]) << course->getId() << " |"
+                << " " << setw(columnLengths[1]) << course->getTitle() << " |"
+                << " " << setw(columnLengths[2]) << course->getDescription() << " |"
+                << " " << setw(columnLengths[3]) << course->getInstructor() << " |"
+                << " " << setw(columnLengths[4]) << course->getStartDate() << " |"
+                << " " << setw(columnLengths[5]) << course->getEndDate() << " | \n";
+        }
+
+        delete[] columnLengths;
+
+    }
+
+    void generateCourseReport() {
+        multimap<double, Course> CourseMap;
+
+
+        // idk what to do for course report
+
+
+
+    };
+};
