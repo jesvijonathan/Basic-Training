@@ -17,6 +17,7 @@
 #include "employee.h"
 #include "report.h"
 #include "enrollment.h"
+#include "update.h"
 #include "trainingManager.h"
 
 

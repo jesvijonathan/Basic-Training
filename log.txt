@@ -1961,3 +1961,140 @@ Application Started
 Training Manager Invoked
 Initializing Training Manager...
 Application Exited
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Application Exited
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Add new course
+Course 1 created
+Course created & saved
+Training Manager Invoked
+Generate report
+Training Manager Invoked
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Delete employee
+Employee 1 not found
+Training Manager Invoked
+Generate report
+Training Manager Invoked
+Add new employee
+Employee 1 created
+Employee created & saved
+Training Manager Invoked
+Add new employee
+Employee 2 created
+Employee created & saved
+Training Manager Invoked
+Delete employee
+Employee 1 deleted
+Training Manager Invoked
+Generate report
+Training Manager Invoked
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Generate report
+Training Manager Invoked
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Update
+Training Manager Invoked
+Update
+Course 2 not found
+Employee 1 not found
+Employee 2 not found
+Course 2 not found
+Training Manager Invoked
+Update
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Update
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Update
+Course 1 not found
+Employee 2 not found
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Add new course
+Course 1 created
+Course created & saved
+Training Manager Invoked
+Add new employee
+Employee 1 created
+Employee created & saved
+Training Manager Invoked
+Add new course
+Course 2 created
+Course created & saved
+Training Manager Invoked
+Add new course
+Course 3 created
+Course created & saved
+Training Manager Invoked
+Add new employee
+Employee 2 created
+Employee created & saved
+Training Manager Invoked
+Update
+Course 2 deleted
+Course 2 deleted
+Employee 2 deleted
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Add new course
+Course 1 created
+Course created & saved
+Training Manager Invoked
+Add new course
+Course 2 created
+Course created & saved
+Training Manager Invoked
+Add new course
+Course 3 created
+Course created & saved
+Training Manager Invoked
+Add new course
+Course 4 created
+Course created & saved
+Training Manager Invoked
+Add new employee
+Employee 1 created
+Employee created & saved
+Training Manager Invoked
+Add new employee
+Employee 2 created
+Employee created & saved
+Training Manager Invoked
+Add new employee
+Employee 3 created
+Employee created & saved
+Training Manager Invoked
+Update
+Course 2 deleted
+Course 2 deleted
+Employee 5 not found
+Training Manager Invoked
+Generate report
+Training Manager Invoked
+Generate report
+Training Manager Invoked
+Update
+Employee 2 deleted
+Training Manager Invoked
+Generate report
+Training Manager Invoked
+Application Exited

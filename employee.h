@@ -98,7 +98,6 @@ int Employee::currentId = 0;
 
 vector<Employee*> employees;
 
-
 void employeeMenu() {
     int* date = getTime();
     string dateStr = to_string(date[0]) + "/" + to_string(date[1]) + "/" + to_string(date[2]);

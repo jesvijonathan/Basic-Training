@@ -1,8 +1,9 @@
 #define AddCourse 0
 #define AddEmployee 1
-#define EnrollEmployee 2
-#define GenerateReport 3
-#define Exit 4
+#define Update 2
+#define EnrollEmployee 3
+#define GenerateReport 4
+#define Exit 5
 
 class Quit {
 public:
@@ -25,7 +26,7 @@ private:
 
 public:
     TrainingManager() {
-        menuOptions = { "Add new course", "Add new employee", "Enroll employee in course", "Generate report", "Exit" };
+        menuOptions = { "Add new course", "Add new employee", "Update Details", "Enroll employee in course", "Generate report", "Exit" };
     }
     TrainingManager(vector<string> menuOptions) {
         this->menuOptions = menuOptions;
@@ -48,6 +49,10 @@ public:
             case AddEmployee:
                 logger->log("Add new employee");
                 employeeMenu();
+                break;
+            case Update:
+                logger->log("Update");
+                updateMenu();
                 break;
             case EnrollEmployee:
                 logger->log("Enroll employee in course");
