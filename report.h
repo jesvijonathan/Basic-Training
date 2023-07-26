@@ -35,20 +35,16 @@ public:
     ~ReportGenerator() {
     }
 
-    void generateEmployeeReport() {
-        // display employee ID | Name | Percent use sort and itterators
-
-
-    }
 
     void viewAll() {
+        cout << " Courses Report -\n";
         viewCourses();
-        cout << "\n\n";
+        cout << "\n\n Employee Report -\n";
         viewEmployees();
         system("notepad.exe log.txt");
     }
 
-    int* viewCourses() {
+    auto viewCourses() {
         int* columnLengths = new int[7] {0};
 
         vector<string> headers = { "ID", "Title", "Description", "Instructor", "Start Date", "End Date" };
@@ -61,7 +57,7 @@ public:
         return columnLengths;
     }
 
-    int* viewEmployees() {
+    auto viewEmployees() {
         int* columnLengths = new int[7] {0};
 
         vector<string> headers = { "ID", "Name", "Position", "Department", "Join Date", "Age", "Percent" };
@@ -89,7 +85,6 @@ void reportMenu() {
 
         switch (selectedOption) {
         case 0:
-
             cout << "Courses \n\n";
             courseReport.viewCourses();
             break;

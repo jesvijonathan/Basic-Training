@@ -8,7 +8,11 @@ using namespace crs;
 using namespace emp;
 class Enrollment {
 public:
+    // copy constructor    
+
     Enrollment(Employee& employee, Course& course) : employee_(employee), course_(course) {}
+
+
     ~Enrollment() {}
 
 
@@ -17,7 +21,12 @@ public:
 };
 
 
-class EnrollmentManager {
+class VirtualExampleFunction {
+public:
+    virtual void view() = 0;
+};
+
+class EnrollmentManager : public VirtualExampleFunction {
 public:
     EnrollmentManager() {}
     ~EnrollmentManager() {}
@@ -43,9 +52,9 @@ public:
 
         if (it != courses.end()) {
             Course* selectedCourse = *it;
-            cout << "Course found: \n\n";
+            cout << "Course found: ";
 
-            cout << " " << setw(columnLengths[0]) << selectedCourse->getId() << " | "
+            cout << "\n\n " << setw(columnLengths[0]) << selectedCourse->getId() << " | "
                 << setw(columnLengths[1]) << selectedCourse->getTitle() << " | "
                 << setw(columnLengths[2]) << selectedCourse->getDescription() << " | "
                 << setw(columnLengths[3]) << selectedCourse->getInstructor() << " | "
@@ -83,9 +92,9 @@ public:
 
         if (it != employees.end()) {
             Employee* selectedEmployee = *it;
-            cout << "Employee found: \n\n";
+            cout << "Employee found: ";
 
-            cout << " " << setw(columnLengths[0]) << selectedEmployee->getId() << " | "
+            cout << "\n\n " << setw(columnLengths[0]) << selectedEmployee->getId() << " | "
                 << setw(columnLengths[1]) << selectedEmployee->getName() << " | "
                 << setw(columnLengths[2]) << selectedEmployee->getPosition() << " | "
                 << setw(columnLengths[3]) << selectedEmployee->getDepartment() << " | "
@@ -147,7 +156,6 @@ public:
             cout << "\nEmployee enrolled in course\n";
             system("pause");
 
-            // enrollments_->push_back(new Enrollment(*currentEmployee_, *currentCourse_));
             enrollments_.push_back(new Enrollment(*currentEmployee_, *currentCourse_));
         }
         else {
@@ -156,16 +164,48 @@ public:
         }
     }
 
+    // pointer function
+    void view() {
+        cout << "Enrollments: \n\n";
+        cout << "EMPLOYEE ID | EMPLOYEE NAME | COURSE ID | COURSE TITLE\n";
+        for (int i = 0; i < enrollments_.size(); i++) {
+            cout << enrollments_[i]->employee_.getId() << " | "
+                << enrollments_[i]->employee_.getName() << " | "
+                << enrollments_[i]->course_.getId() << " | "
+                << enrollments_[i]->course_.getTitle() << "\n";
+        }
+    }
+
+    void unenroll() {
+        if (enrollments_.size() > 0) {
+            view();
+        }
+        else {
+            cout << "No enrollments\n";
+        }
+
+        int id;
+        cout << "Enter employee id to unenroll: ";
+        cin >> id;
+
+        auto it = find_if(enrollments_.begin(), enrollments_.end(), [id](const Enrollment* enrollment) {
+            return enrollment->employee_.getId() == id;
+            });
+
+        if (it != enrollments_.end()) {
+            enrollments_.erase(it);
+            cout << "Employee unenrolled !\n";
+        }
+        else {
+            cout << "Employee with id " << id << " not found ! \n\n";
+        }
+
+        system("pause");
+    }
+
     void viewEnrollment() {
         if (enrollments_.size() > 0) {
-            cout << "Enrollments: \n\n";
-            cout << "EMPLOYEE ID | EMPLOYEE NAME | COURSE ID | COURSE TITLE\n";
-            for (int i = 0; i < enrollments_.size(); i++) {
-                cout << enrollments_[i]->employee_.getId() << " | "
-                    << enrollments_[i]->employee_.getName() << " | "
-                    << enrollments_[i]->course_.getId() << " | "
-                    << enrollments_[i]->course_.getTitle() << "\n";
-            }
+            view();
         }
         else {
             cout << "No enrollments\n";
@@ -186,8 +226,9 @@ private:
 
 
 
+EnrollmentManager enrollManager;
+
 void enrollManagerMenu() {
-    EnrollmentManager enrollManager;
     vector<string> menuData = { "Enroll Employee", "Unenroll Employee", "View Enrollments" };
     int selectedOption = 0;
 
@@ -202,6 +243,7 @@ void enrollManagerMenu() {
             break;
         case 1:
             logger->log("Unenroll Employee");
+            enrollManager.unenroll();
             break;
         case 2:
             logger->log("View Enrollments");

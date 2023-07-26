@@ -209,8 +209,8 @@ namespace emp {
     }
     void generateEmployeeReport() {
         multimap<double, Employee> employeeMap;
-        // insert based on percent, highest to lowest (descending)
 
+        cout << " Employee Ranked -\n";
         for (const auto& employee : employees) {
             employeeMap.insert(pair<double, Employee>(employee->getPercent(), *employee));
         }

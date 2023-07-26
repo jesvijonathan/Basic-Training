@@ -4,7 +4,21 @@
 #define GenerateReport 3
 #define Exit 4
 
-class TrainingManager {
+class Quit {
+public:
+    //base class fun
+    void quit_seq() {
+        logger->log("Application Exited");
+        cout << "\n\nExiting...";
+        exit(0);
+    }
+    void quit() {
+        quit_seq();
+    }
+};
+
+// inheritence
+class TrainingManager : public Quit {
 private:
     vector<string> menuOptions;
 
@@ -12,6 +26,13 @@ private:
 public:
     TrainingManager() {
         menuOptions = { "Add new course", "Add new employee", "Enroll employee in course", "Generate report", "Exit" };
+    }
+    TrainingManager(vector<string> menuOptions) {
+        this->menuOptions = menuOptions;
+    }
+    //deri class fun
+    void quit_seq() {
+        cout << "asbtract class test | this will not be printed lol";
     }
 
     void run() {
@@ -41,8 +62,8 @@ public:
             }
         }
         else {
-            logger->log("Application Exited");
-            exit(0);
+            // abstract class
+            quit();
         }
     }
 };

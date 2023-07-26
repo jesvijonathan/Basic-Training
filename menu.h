@@ -13,6 +13,7 @@ using namespace std;
 
 // option_enter default is empty if not specified
 class Menu {
+
 public:
     Menu(const vector<string>& options, const string& option_text = "Select an option :",
         const string& option_enter = "", const size_t currentOption = 0) :
@@ -71,6 +72,7 @@ public:
             }
 
         }
+
 
     }
 

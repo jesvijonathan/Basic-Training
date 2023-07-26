@@ -93,7 +93,7 @@ int main() {
     catch (...) {
         logger->log("Exception : Unknown");
     }
-    system("pause");
+
     return 0;
 }
 
