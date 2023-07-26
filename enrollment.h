@@ -9,7 +9,6 @@ using namespace emp;
 class Enrollment {
 public:
     // copy constructor    
-
     Enrollment(Employee& employee, Course& course) : employee_(employee), course_(course) {}
 
 

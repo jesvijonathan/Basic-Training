@@ -2098,3 +2098,93 @@ Training Manager Invoked
 Generate report
 Training Manager Invoked
 Application Exited
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Add new course
+Course 1 created
+Course created & saved
+Training Manager Invoked
+Add new course
+Course 2 created
+Course created & saved
+Training Manager Invoked
+Add new course
+Course 3 created
+Course created & saved
+Training Manager Invoked
+Add new employee
+Employee 1 created
+Employee created & saved
+Training Manager Invoked
+Add new employee
+Employee 2 created
+Employee created & saved
+Training Manager Invoked
+Add new employee
+Employee 3 created
+Employee created & saved
+Training Manager Invoked
+Add new employee
+Employee 4 created
+Employee created & saved
+Training Manager Invoked
+Add new course
+Course 4 created
+Course created & saved
+Training Manager Invoked
+Generate report
+Training Manager Invoked
+Enroll employee in course
+Enroll Employee
+View Enrollments
+Enroll Employee
+Enroll Employee
+View Enrollments
+Enroll Employee
+Enroll Employee
+View Enrollments
+Unenroll Employee
+View Enrollments
+Enroll Employee
+View Enrollments
+Training Manager Invoked
+Generate report
+Training Manager Invoked
+Update
+Course 3 deleted
+Course 3 deleted
+Training Manager Invoked
+Generate report
+Training Manager Invoked
+Update
+Employee 4 deleted
+Employee 3 deleted
+Training Manager Invoked
+Enroll employee in course
+Training Manager Invoked
+Generate report
+Employee 1 deleted
+Employee 2 deleted
+Employee 2 deleted
+Employee 1 deleted
+Training Manager Invoked
+Add new employee
+Employee 1 created
+Employee created & saved
+Training Manager Invoked
+Generate report
+Employee 1 deleted
+Employee 2 deleted
+Employee 1 deleted
+Employee 2 deleted
+Employee 1 deleted
+Employee 1 deleted
+Training Manager Invoked
+Application Exited
