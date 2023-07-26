@@ -195,7 +195,7 @@ namespace crs {
     }
 
     void generateCourseReport() {
-        multimap<double, Course> CourseMap;
+        // multimap<double, Course> CourseMap;
 
 
         // idk what to do for course report
