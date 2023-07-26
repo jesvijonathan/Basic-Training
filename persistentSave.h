@@ -147,13 +147,11 @@ public:
         saveCourse();
         saveEmployee();
         saveEnrollment();
-        enrollManager.saveEnrollmentManager();
     }
 
     void globalLoad() {
         loadCourse();
         loadEmployee();
-        // enrollManager.loadEnrollmentManager();
     }
     ~PersistentSave() {
         //globalSave();

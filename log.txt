@@ -1262,3 +1262,65 @@ Course 7 created
 Course created & saved
 Training Manager Invoked
 Generate report
+Application Started
+Initializing Training Manager...
+Course Menu
+Course 1 created
+Course created & saved
+Training Manager Invoked
+Course Menu
+Course 2 created
+Course created & saved
+Training Manager Invoked
+Course Menu
+Course 3 created
+Course created & saved
+Training Manager Invoked
+Course Menu
+Course 4 created
+Course created & saved
+Training Manager Invoked
+Course Menu
+Course 5 created
+Course created & saved
+Training Manager Invoked
+Employee Menu
+Employee 1 created
+Employee created & saved
+Training Manager Invoked
+Employee Menu
+Employee 2 created
+Employee created & saved
+Training Manager Invoked
+Enroll employee Menu
+Enroll Employee
+View Enrollments
+Training Manager Invoked
+Saved
+Training Manager Invoked
+Application Exited
+Application Started
+Initializing Training Manager...
+Loaded
+Course 1 created
+Course 2 created
+Course 3 created
+Course 4 created
+Course 5 created
+Employee 1 created
+Employee 2 created
+Training Manager Invoked
+Generate report
+Training Manager Invoked
+Enroll employee Menu
+View Enrollments
+Training Manager Invoked
+Course Menu
+Course 6 created
+Course created & saved
+Training Manager Invoked
+Employee Menu
+Employee 3 created
+Employee created & saved
+Training Manager Invoked
+Application Exited

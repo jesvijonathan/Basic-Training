@@ -9,7 +9,7 @@ public:
     }
 
     void authenticate() {
-        return run();
+        //return run();
 
         system("cls");
         cout << "Training Management Application | Authentication\n\n";
