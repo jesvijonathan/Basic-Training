@@ -17,12 +17,9 @@
 #include "employee.h"
 #include "enrollment.h"
 #include "report.h"
+#include "trainingManager.h"
 
-#define AddCourse 0
-#define AddEmployee 1
-#define EnrollEmployee 2
-#define GenerateReport 3
-#define Exit 4
+
 
 using namespace std;
 using namespace crs;
@@ -56,52 +53,36 @@ int* getTime() {
     return dateArr;
 }
 
+// Proxy Design Pattern
+class TrainingManagerProxy {
+private:
+    TrainingManager* trainingManager;
 
+public:
+    TrainingManagerProxy() {
+        trainingManager = nullptr;
+    }
 
-void TrainingManager() {
-    vector<string> menuOptions = { "Add new course", "Add new employee", "Enroll employee in course", "Generate report", "Exit" };
-
-    Menu menu(menuOptions, "Training Management Application\n\nMain Menu\n", "Press 'Enter' to select an option or 'q' to quit :");
-    int selectedOption = menu.run();
-
-    if (selectedOption < menuOptions.size() - 1) {
-        switch (selectedOption) {
-        case AddCourse:
-            logger->log("Add new course");
-            courseMenu();
-            break;
-        case AddEmployee:
-            logger->log("Add new employee");
-            employeeMenu();
-            break;
-        case EnrollEmployee:
-            logger->log("Enroll employee in course");
-            break;
-        case GenerateReport:
-            logger->log("Generate report");
-            reportMenu();
-            break;
-        default:
-            break;
+    void run() {
+        if (!trainingManager) {
+            // Lazy initialization of the TrainingManager
+            logger->log("Initializing Training Manager...");
+            trainingManager = new TrainingManager();
         }
+        trainingManager->run();
     }
-    else {
-
-        logger->log("Application Exited");
-        exit(0);
-    }
-}
-
+};
 
 
 int main() {
     try {
         SetConsoleTitle("Worldline - Training Management Application");
         logger->log("Application Started");
+        TrainingManagerProxy trainingManagerProxy;
 
         while (true) {
             logger->log("Training Manager Invoked");
-            TrainingManager();
+            trainingManagerProxy.run();
         }
 
     }

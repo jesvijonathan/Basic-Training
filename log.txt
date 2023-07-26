@@ -573,3 +573,38 @@ Course 3 created
 Course created & saved
 Training Manager Invoked
 Generate report
+Application Started
+Training Manager Invoked
+Application Exited
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Application Started
+Training Manager Invoked
+Initializing Training Manager...
+Add new employee
+Employee 1 created
+Employee created & saved
+Training Manager Invoked
+Add new course
+Course 1 created
+Course created & saved
+Training Manager Invoked
+Add new employee
+Employee 2 created
+Employee created & saved
+Training Manager Invoked
+Add new employee
+Employee 3 created
+Employee created & saved
+Training Manager Invoked
+Generate report
+Employee 1 deleted
+Employee 2 deleted
+Employee 3 deleted
+Employee 3 deleted
+Employee 2 deleted
+Employee 1 deleted
+Training Manager Invoked
+Enroll employee in course
+Training Manager Invoked

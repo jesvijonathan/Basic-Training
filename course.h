@@ -193,7 +193,6 @@ namespace crs {
         delete[] columnLengths;
 
     }
-
     void generateCourseReport() {
         // multimap<double, Course> CourseMap;
 
