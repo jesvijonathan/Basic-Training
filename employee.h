@@ -147,13 +147,21 @@ void employeeMenu() {
         case 6:
         case -2:
             // relevant data  
-            employee->setName(menuData[1]);
-            employee->setPosition(menuData[2]);
-            employee->setDepartment(menuData[3]);
-            employee->setJoinDate(menuData[4]);
-            employee->setAge(stoi(menuData[5]));
-            employee->setPercent(stoi(menuData[6]));
-            employees.push_back(new Employee(*employee));
+            try {
+                employee->setName(menuData[1]);
+                employee->setPosition(menuData[2]);
+                employee->setDepartment(menuData[3]);
+                employee->setJoinDate(menuData[4]);
+                employee->setAge(stoi(menuData[5]));
+                employee->setPercent(stoi(menuData[6]));
+                employees.push_back(new Employee(*employee));
+            }
+            catch (exception e) {
+                cout << "Invalid input\n";
+                logger->log("Employee not created");
+                system("pause");
+                return;
+            }
             logger->log("Employee created & saved");
             return;
             break;
@@ -232,7 +240,5 @@ namespace emp {
         }
 
         cout << "\n\n";
-
-
     }
 };

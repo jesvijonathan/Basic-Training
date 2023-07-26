@@ -11,7 +11,6 @@
 
 using namespace std;
 
-// option_enter default is empty if not specified
 class Menu {
 
 public:

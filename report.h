@@ -7,7 +7,11 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>   
-#include <iomanip> // for setw
+#include <iomanip> 
+
+using namespace std;
+using namespace crs;
+using namespace emp;
 
 int* printTableHeader(int* columnLengths, const vector<string>& headers) {
 
@@ -20,9 +24,6 @@ int* printTableHeader(int* columnLengths, const vector<string>& headers) {
     return columnLengths;
 }
 
-using namespace std;
-using namespace crs;
-using namespace emp;
 
 template <class T>
 

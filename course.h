@@ -6,7 +6,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>
-#include <iomanip> // for setw
+#include <iomanip>  
 
 
 using namespace std;
@@ -143,12 +143,19 @@ void courseMenu() {
         case 5:
         case -2:
             // relevant data 
-            course->setTitle(menuData[1]);
-            course->setDescription(menuData[2]);
-            course->setInstructor(menuData[3]);
-            course->setStartDate(menuData[4]);
-            course->setEndDate(menuData[5]);
-            courses.push_back(course);
+            try {
+                course->setTitle(menuData[1]);
+                course->setDescription(menuData[2]);
+                course->setInstructor(menuData[3]);
+                course->setStartDate(menuData[4]);
+                course->setEndDate(menuData[5]);
+                courses.push_back(course);
+            }
+            catch (exception e) {
+                cout << "Invalid input\n";
+                logger->log("Course not created");
+                system("pause");
+            }
             logger->log("Course created & saved");
             return;
             break;
@@ -194,7 +201,6 @@ namespace crs {
 
     }
     void generateCourseReport() {
-        // multimap<double, Course> CourseMap;
 
 
         // idk what to do for course report

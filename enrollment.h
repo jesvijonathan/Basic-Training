@@ -111,6 +111,7 @@ public:
 
         return;
     }
+
     void viewCurrent() {
         if (currentCourse_ != nullptr && currentEmployee_ != nullptr) {
             cout << "Current Course: " << currentCourse_->getTitle() << "\n";
@@ -125,32 +126,8 @@ public:
     void enroll() {
         selectEmployee();
         selectCourse();
-        // check if current course and employee are selected
         if (currentCourse_ != nullptr && currentEmployee_ != nullptr) {
-            // system("cls");
-            // cout << "\n\n Main Menu / Enrollment Menu / Enroll Employee\n\n";
 
-            // // display current course and employee
-            // // cout << "EMPLOYEE ID | EMPLOYEE NAME | COURSE ID | COURSE TITLE\n"; USE SETW
-
-            // int* spacing = new int[4] {0};
-            // for (int i = 0; i < 2; i++) {
-            //     if (i == 0) {
-            //         cout << "Employee: \n";
-            //         vector<string> headers = { "ID", "Name", "Position", "Department", "Join Date", "Age", "Percent" };
-            //         spacing = emp::calculateColumnLengths(employees, spacing);
-            //         printTableHeader(spacing, headers);
-            //         emp::EmployeesDataTable(spacing);
-
-            //     }
-            //     else {
-            //         cout << "\n\nCourse: \n";
-            //         vector<string> headers = { "ID", "Title", "Description", "Instructor", "Start Date", "End Date" };
-            //         spacing = crs::calculateColumnLengths(courses, spacing);
-            //         printTableHeader(spacing, headers);
-            //         crs::CoursesDataTable(spacing);
-            //     }
-            // }
 
             cout << "\nEmployee enrolled in course\n";
             system("pause");
@@ -222,7 +199,6 @@ private:
     vector<Enrollment*> enrollments_;
 
 };
-
 
 
 EnrollmentManager enrollManager;

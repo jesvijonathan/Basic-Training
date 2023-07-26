@@ -95,6 +95,7 @@ void deleteEmployee() {
 void updateMenu() {
     vector<string> menuOptions = { "Update Course", "Update Employee", "Back" };
     ReportGenerator<Course> courseReport;
+
     while (true) {
         Menu menu(
             menuOptions,

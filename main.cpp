@@ -7,7 +7,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>
-#include <iomanip> // for setw
+#include <iomanip>  
 
 #include "logger.h"
 #define logger Logger::getInstance()
@@ -66,7 +66,6 @@ public:
 
     void run() {
         if (!trainingManager) {
-            // Lazy initialization of the TrainingManager
             logger->log("Initializing Training Manager...");
             trainingManager = new TrainingManager();
         }

@@ -2,29 +2,31 @@
 #include <fstream>
 #include <mutex>
 
+using namespace std;
+
 class Logger {
 private:
-    std::ofstream logfile;
+    ofstream logfile;
     static Logger* instance;
-    static std::mutex mtx;
+    static mutex mtx;
 
     Logger() {
-        logfile.open("log.txt", std::ios::app);
+        logfile.open("log.txt", ios::app);
     }
 
 public:
     static Logger* getInstance() {
-        std::lock_guard<std::mutex> lock(mtx);
+        lock_guard<mutex> lock(mtx);
         if (!instance) {
             instance = new Logger();
         }
         return instance;
     }
 
-    void log(const std::string& message) {
-        std::lock_guard<std::mutex> lock(mtx);
+    void log(const string& message) {
+        lock_guard<mutex> lock(mtx);
         if (logfile.is_open()) {
-            logfile << message << std::endl;
+            logfile << message << endl;
         }
     }
 
@@ -36,6 +38,6 @@ public:
 };
 
 Logger* Logger::instance = nullptr;
-std::mutex Logger::mtx;
+mutex Logger::mtx;
 
 
