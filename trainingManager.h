@@ -30,6 +30,7 @@ public:
                 break;
             case EnrollEmployee:
                 logger->log("Enroll employee in course");
+                enrollManagerMenu();
                 break;
             case GenerateReport:
                 logger->log("Generate report");

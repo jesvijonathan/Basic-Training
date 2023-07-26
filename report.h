@@ -48,7 +48,7 @@ public:
         system("notepad.exe log.txt");
     }
 
-    void viewCourses() {
+    int* viewCourses() {
         int* columnLengths = new int[7] {0};
 
         vector<string> headers = { "ID", "Title", "Description", "Instructor", "Start Date", "End Date" };
@@ -58,10 +58,10 @@ public:
 
         crs::CoursesDataTable(columnLengths);
 
-
+        return columnLengths;
     }
 
-    void viewEmployees() {
+    int* viewEmployees() {
         int* columnLengths = new int[7] {0};
 
         vector<string> headers = { "ID", "Name", "Position", "Department", "Join Date", "Age", "Percent" };
@@ -70,7 +70,7 @@ public:
         columnLengths = printTableHeader(columnLengths, headers);
 
         emp::EmployeesDataTable(columnLengths);
-
+        return columnLengths;
 
     }
 };

@@ -15,12 +15,12 @@
 #include "menu.h"
 #include "course.h"
 #include "employee.h"
-#include "enrollment.h"
 #include "report.h"
+#include "enrollment.h"
 #include "trainingManager.h"
 
 
-
+// names spaces
 using namespace std;
 using namespace crs;
 using namespace emp;
