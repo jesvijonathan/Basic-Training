@@ -51,6 +51,7 @@ public:
         vector<string> headers = { "ID", "Title", "Description", "Instructor", "Start Date", "End Date" };
 
         columnLengths = crs::calculateColumnLengths(courses, columnLengths);
+
         columnLengths = printTableHeader(columnLengths, headers);
 
         crs::CoursesDataTable(columnLengths);
@@ -75,7 +76,7 @@ public:
 
 
 void reportMenu() {
-    vector<string> menuOptions = { "View Courses", "View Employees", "View All", "Return to Main Menu" };
+    vector<string> menuOptions = { "View Courses", "View Employees", "Generate Report", "Return to Main Menu" };
 
     ReportGenerator<Course> courseReport;
 

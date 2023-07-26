@@ -20,15 +20,19 @@ public:
 };
 
 
+
 class VirtualExampleFunction {
 public:
     virtual void view() = 0;
 };
 
+
 class EnrollmentManager : public VirtualExampleFunction {
 public:
     EnrollmentManager() {}
     ~EnrollmentManager() {}
+
+
 
     void selectCourse() {
         int id;
@@ -190,13 +194,79 @@ public:
         system("pause");
     }
 
+    auto getEnrollments() {
+        return enrollments_;
+    }
+    auto setEnrollments(vector<Enrollment*> enrollments) {
+        enrollments_ = enrollments;
+    }
+
+
+    void saveEnrollmentManager() {
+        std::string filename = "enrollment.dat";
+        std::ofstream outFile(filename, std::ios::binary);
+        if (!outFile) {
+            std::cerr << "Failed to open file for writing." << std::endl;
+            return;
+        }
+
+        // Write the number of enrollments to the file
+        size_t numEnrollments = enrollments_.size();
+        outFile.write(reinterpret_cast<const char*>(&numEnrollments), sizeof(numEnrollments));
+
+        // Write each enrollment to the file
+        for (const auto& enrollment : enrollments_) {
+            // Write the employee object (assuming Employee is serializable)
+            outFile.write(reinterpret_cast<const char*>(&enrollment->employee_), sizeof(Employee));
+            // Write the course object (assuming Course is serializable)
+            outFile.write(reinterpret_cast<const char*>(&enrollment->course_), sizeof(Course));
+        }
+
+        outFile.close();
+    }
+
+
+    void loadEnrollmentManager() {
+        std::string filename = "enrollment.dat";
+        std::ifstream inFile(filename, std::ios::binary);
+
+        if (!inFile) {
+            std::cerr << "Failed to open file for reading." << std::endl;
+            system("pause");
+            return;
+        }
+
+        // Clear existing enrollments (if any)
+        for (Enrollment* enrollment : enrollments_) {
+            delete enrollment;
+        }
+        enrollments_.clear();
+
+        // Read the number of enrollments from the file
+        size_t numEnrollments = 0;
+        inFile.read(reinterpret_cast<char*>(&numEnrollments), sizeof(numEnrollments));
+
+        for (size_t i = 0; i < numEnrollments; ++i) {
+            // Read the employee object (assuming Employee is serializable)
+            Employee employee;
+
+            // Read the course object (assuming Course is serializable)
+            Course course;
+
+            // Create a new Enrollment object and add it to the enrollments vector
+            enrollments_.push_back(new Enrollment(employee, course));
+        }
+
+        inFile.close();
+    }
+
 
 private:
     // have reference to curernt course and employee
     Course* currentCourse_;
     Employee* currentEmployee_;
-
     vector<Enrollment*> enrollments_;
+
 
 };
 

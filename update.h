@@ -117,6 +117,7 @@ void updateMenu() {
             deleteEmployee();
             break;
         case 2:
+        case -1:
             return;
         }
     }

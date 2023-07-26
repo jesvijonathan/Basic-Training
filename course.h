@@ -20,7 +20,9 @@ public:
         id = ++currentId;
         logger->log("Course " + to_string(id) + " created");
     }
+    Course() {
 
+    }
     // destructor
     ~Course() {
         logger->log("Course " + to_string(id) + " deleted");
@@ -77,6 +79,7 @@ public:
     }
 
 
+    static int currentId;
 
 private:
     int id;
@@ -86,15 +89,11 @@ private:
     string startDate;
     string endDate;
 
-    static int currentId;
 };
-
-int Course::currentId = 0;
-
-
 
 vector<Course*> courses;
 
+int Course::currentId = courses.size();
 
 void courseMenu() {
     int* date = getTime();

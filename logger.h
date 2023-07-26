@@ -5,8 +5,10 @@
 using namespace std;
 
 class Logger {
+
 private:
     ofstream logfile;
+
     static Logger* instance;
     static mutex mtx;
 
@@ -17,9 +19,11 @@ private:
 public:
     static Logger* getInstance() {
         lock_guard<mutex> lock(mtx);
+
         if (!instance) {
             instance = new Logger();
         }
+
         return instance;
     }
 
@@ -32,12 +36,14 @@ public:
 
     ~Logger() {
         if (logfile.is_open()) {
+
             logfile.close();
         }
     }
 };
 
 Logger* Logger::instance = nullptr;
+
 mutex Logger::mtx;
 
 

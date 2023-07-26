@@ -9,8 +9,22 @@
 #include <stdlib.h>
 #include <iomanip>  
 
+
+#define KEY_UP 72
+#define KEY_DOWN 80
+#define KEY_LEFT 75
+#define KEY_RIGHT 77
+#define KEY_ENTER 13
+#define KEY_BACKSPACE 8
+#define KEY_Q 113
+#define KEY_S 115
+
+#define default_username "wl2028"
+#define default_password "123"
+
 #include "logger.h"
 #define logger Logger::getInstance()
+
 
 #include "menu.h"
 #include "course.h"
@@ -18,7 +32,13 @@
 #include "report.h"
 #include "enrollment.h"
 #include "update.h"
+
+#include "persistentSave.h"
+PersistentSave persistentSave;
+
 #include "trainingManager.h"
+#include "proxy.h"
+
 
 
 // names spaces
@@ -42,7 +62,6 @@ int* getTime() {
     int currentMinute = ltm->tm_min;
     int currentSecond = ltm->tm_sec;
 
-
     int* dateArr = new int[3];
     dateArr[0] = currentDay;
     dateArr[1] = currentMonth;
@@ -54,32 +73,25 @@ int* getTime() {
     return dateArr;
 }
 
-// Proxy Design Pattern
-class TrainingManagerProxy {
-private:
-    TrainingManager* trainingManager;
-
-public:
-    TrainingManagerProxy() {
-        trainingManager = nullptr;
-    }
-
-    void run() {
-        if (!trainingManager) {
-            logger->log("Initializing Training Manager...");
-            trainingManager = new TrainingManager();
-        }
-        trainingManager->run();
-    }
-};
-
-
 int main() {
     try {
         SetConsoleTitle("Worldline - Training Management Application");
         logger->log("Application Started");
+
         TrainingManagerProxy trainingManagerProxy;
 
+    retryCredentials:
+        try {
+            trainingManagerProxy.authenticate();
+        }
+        catch (string e) {
+            logger->log("Exception : " + e);
+            cout << e << "\n";
+            system("pause");
+            goto retryCredentials;
+        }
+
+        // persistentSave.globalLoad();
         while (true) {
             logger->log("Training Manager Invoked");
             trainingManagerProxy.run();
@@ -93,7 +105,7 @@ int main() {
     catch (...) {
         logger->log("Exception : Unknown");
     }
-
+    system("pause");
     return 0;
 }
 

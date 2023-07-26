@@ -20,6 +20,9 @@ public:
         id = ++currentId;
         logger->log("Employee " + to_string(id) + " created");
     }
+    Employee() {
+
+    }
     // destructor
     ~Employee() {
         logger->log("Employee " + to_string(id) + " deleted");
@@ -82,6 +85,8 @@ public:
         this->percent = percent;
     }
 
+    static int currentId;
+
 private:
     int id;
     string name;
@@ -91,12 +96,13 @@ private:
     int age;
     int percent;
 
-    static int currentId;
 };
 
-int Employee::currentId = 0;
 
 vector<Employee*> employees;
+
+int Employee::currentId = employees.size();
+
 
 void employeeMenu() {
     int* date = getTime();

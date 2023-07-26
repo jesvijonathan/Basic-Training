@@ -3,7 +3,9 @@
 #define Update 2
 #define EnrollEmployee 3
 #define GenerateReport 4
-#define Exit 5
+#define Save 5
+#define Load 6
+#define Exit 7
 
 class Quit {
 public:
@@ -26,14 +28,14 @@ private:
 
 public:
     TrainingManager() {
-        menuOptions = { "Add new course", "Add new employee", "Update Details", "Enroll employee in course", "Generate report", "Exit" };
+        menuOptions = { "Add new course", "Add new employee", "Update Details", "Enroll employee in course", "Generate report","Save", "Load", "Exit" };
     }
     TrainingManager(vector<string> menuOptions) {
         this->menuOptions = menuOptions;
     }
     //deri class fun
     void quit_seq() {
-        cout << "asbtract class test | this will not be printed lol";
+        cout << "asbtract class for above quit_seq | this will not be printed";
     }
 
     void run() {
@@ -43,24 +45,48 @@ public:
         if (selectedOption < menuOptions.size() - 1) {
             switch (selectedOption) {
             case AddCourse:
-                logger->log("Add new course");
+                logger->log("Course Menu");
                 courseMenu();
                 break;
             case AddEmployee:
-                logger->log("Add new employee");
+                logger->log("Employee Menu");
                 employeeMenu();
                 break;
             case Update:
-                logger->log("Update");
+                logger->log("Update Menu");
                 updateMenu();
                 break;
             case EnrollEmployee:
-                logger->log("Enroll employee in course");
+                logger->log("Enroll employee Menu");
                 enrollManagerMenu();
                 break;
             case GenerateReport:
                 logger->log("Generate report");
                 reportMenu();
+                break;
+            case Save:
+                try {
+                    logger->log("Saved");
+                    persistentSave.globalSave();
+                    cout << "\n\nSaved !";
+                }
+                catch (exception e) {
+                    cout << "\n\nError while saving !";
+                }
+                system("pause");
+                break;
+            case Load:
+                try {
+                    logger->log("Loaded");
+                    persistentSave.globalLoad();
+                    cout << "\n\nLoaded !";
+
+
+                }
+                catch (exception e) {
+                    cout << "\n\nError while loading !";
+                }
+                system("pause");
                 break;
             default:
                 break;
