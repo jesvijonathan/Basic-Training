@@ -1,29 +1,18 @@
-
-#include <string>
-#include <vector>
-#include <fstream>
-#include <algorithm>
-#include <windows.h>
-#include <conio.h>
-#include <stdlib.h>
-#include <iomanip>  
-
-
-using namespace std;
-
 int* getTime();
+
+
 class Course {
+
 public:
-    // constructor
+
     Course(const string& title, const string& description, const string& instructor, const string& startDate, const string& endDate)
         : title(title), description(description), instructor(instructor), startDate(startDate), endDate(endDate) {
         id = ++currentId;
         logger->log("Course " + to_string(id) + " instance created");
     }
-    Course() {
 
-    }
-    // destructor
+    Course() {}
+
     ~Course() {
         logger->log("Course " + to_string(id) + " instance deleted");
         currentId--;
@@ -92,14 +81,12 @@ private:
 };
 
 vector<Course*> courses;
-
 int Course::currentId = courses.size();
 
 void courseMenu() {
     int* date = getTime();
     string dateStr = to_string(date[0]) + "/" + to_string(date[1]) + "/" + to_string(date[2]);
 
-    // smart poniters
     Course* course = new Course("", "", "", dateStr, dateStr);
 
     vector<string> menuData = { to_string(course->getId()), course->getTitle(), course->getDescription(), course->getInstructor(), course->getStartDate(), course->getEndDate() };
@@ -141,7 +128,6 @@ void courseMenu() {
             break;
         case 5:
         case -2:
-            // relevant data 
             try {
                 course->setTitle(menuData[1]);
                 course->setDescription(menuData[2]);
@@ -171,12 +157,10 @@ void courseMenu() {
 }
 
 
-// names space
 namespace crs {
-    // passing by reference | function overloading
+
     int* calculateColumnLengths(const vector<Course*>& courses, int* columnLengths = new int[7] {0}) {
 
-        // auto type assigning / templates 
         for (const auto& course : courses) {
             columnLengths[0] = max(columnLengths[0], static_cast<int>(to_string(course->getId()).length()));
             columnLengths[1] = max(columnLengths[1], static_cast<int>(course->getTitle().length()));
@@ -188,6 +172,7 @@ namespace crs {
 
         return columnLengths;
     }
+
     void CoursesDataTable(const int* columnLengths) {
 
         for (const auto& course : courses) {
@@ -202,10 +187,10 @@ namespace crs {
         delete[] columnLengths;
 
     }
+
     void generateCourseReport() {
         logger->log("Course Report Generated");
 
         // idk what to do for course report
-
     };
 };

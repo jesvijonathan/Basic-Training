@@ -1,29 +1,19 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <fstream>
-#include <algorithm>
-#include <windows.h>
-#include <conio.h>
-#include <stdlib.h>   
-#include <map>
-
-using namespace std;
-
 int* getTime();
+int* printTableHeader(int* columnLengths, const vector<string>& headers);
 
 class Employee {
+
 public:
-    // constructor
+
     Employee(const string& name, const string& position, const string& department, const string& joinDate, const int& age, const int& percent)
         : name(name), position(position), department(department), joinDate(joinDate), age(age), percent(percent) {
+
         id = ++currentId;
         logger->log("Employee " + to_string(id) + " instance created");
     }
-    Employee() {
 
-    }
-    // destructor
+    Employee() {}
+
     ~Employee() {
         logger->log("Employee " + to_string(id) + " instance deleted");
         currentId--;
@@ -88,19 +78,12 @@ public:
     static int currentId;
 
 private:
-    int id;
-    string name;
-    string position;
-    string department;
-    string joinDate;
-    int age;
-    int percent;
-
+    int id, age, percent;
+    string name, position, department, joinDate;
 };
 
 
 vector<Employee*> employees;
-
 int Employee::currentId = employees.size();
 
 
@@ -152,7 +135,6 @@ void employeeMenu() {
             break;
         case 6:
         case -2:
-            // relevant data  
             try {
                 employee->setName(menuData[1]);
                 employee->setPosition(menuData[2]);
@@ -183,15 +165,11 @@ void employeeMenu() {
     return;
 }
 
-int* printTableHeader(int* columnLengths, const vector<string>& headers);
 
 namespace emp {
 
-
-    // passing by reference | function overloading
     int* calculateColumnLengths(const vector<Employee*>& employees, int* columnLengths = new int[7] {0}) {
 
-        // auto type assigning / templates 
         for (const auto& employee : employees) {
             columnLengths[0] = max(columnLengths[0], static_cast<int>(to_string(employee->getId()).length()));
             columnLengths[1] = max(columnLengths[1], static_cast<int>(employee->getName().length()));
@@ -205,10 +183,8 @@ namespace emp {
         return columnLengths;
     }
 
-
     void EmployeesDataTable(const int* columnLengths, boolean reversed = false) {
 
-        // print employee data
         for (const auto& employee : employees) {
             cout << " " << setw(columnLengths[0]) << employee->getId() << " | "
                 << setw(columnLengths[1]) << employee->getName() << " | "
@@ -221,16 +197,18 @@ namespace emp {
 
         delete[] columnLengths;
     }
+
     void generateEmployeeReport() {
         multimap<double, Employee> employeeMap;
+        int* columnLengths = new int[7] {0};
+        vector<string> headers = { "ID", "Name", "Position", "Department", "Join Date", "Age", "Percent" };
 
         cout << " Employee Ranked -\n";
+
         for (const auto& employee : employees) {
             employeeMap.insert(pair<double, Employee>(employee->getPercent(), *employee));
         }
 
-        int* columnLengths = new int[7] {0};
-        vector<string> headers = { "ID", "Name", "Position", "Department", "Join Date", "Age", "Percent" };
         columnLengths = calculateColumnLengths(employees, columnLengths);
         columnLengths = printTableHeader(columnLengths, headers);
 

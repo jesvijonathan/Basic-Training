@@ -1,14 +1,3 @@
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <iomanip>
-#include <windows.h>
-
-using namespace std;
-
 class PersistentSave {
 
 public:
@@ -21,14 +10,13 @@ public:
             getline(enrollmentFile, line);
 
             enrollManager.clearEnrollments();
+
             while (getline(enrollmentFile, line)) {
                 stringstream ss(line);
                 string data[4];
                 for (int i = 0; i < 4; ++i) {
                     getline(ss, data[i], ',');
                 }
-
-                // make use of Employee* employee objects to pass to addToEnroll()
 
                 Employee* employeeT = nullptr;
                 Course* courseT = nullptr;
@@ -47,17 +35,13 @@ public:
                     }
                 }
 
-
                 if (employeeT != nullptr && courseT != nullptr) {
                     enrollManager.addToEnroll(employeeT, courseT);
                 }
-
-
                 else {
                     cout << "Employee or course not found\n";
                 }
             }
-
             logger->log("Enrollment data loaded");
         }
         else {
@@ -83,6 +67,7 @@ public:
             }
 
             Course::currentId = courses.size();
+
             logger->log("Courses data loaded");
         }
         else {
@@ -92,7 +77,7 @@ public:
     }
 
 
-    static  void loadEmployee() {
+    static void loadEmployee() {
         ifstream employeesFile("data\\employees.csv");
 
         if (employeesFile.is_open()) {
@@ -109,6 +94,7 @@ public:
             }
 
             Employee::currentId = employees.size();
+
             logger->log("Employees data loaded");
         }
         else {
@@ -140,7 +126,6 @@ public:
     PersistentSave() {
         //globalLoad();
     }
-
 
 
     static  void saveCourse() {
@@ -188,7 +173,7 @@ public:
     }
 
 
-    static  void globalSave() {
+    static void globalSave() {
         saveCourse();
         saveEmployee();
         saveEnrollment();

@@ -1,19 +1,10 @@
-#include <map>
-#include <iostream>
-#include <string>
-#include <vector>
 
-using namespace std;
-using namespace crs;
-using namespace emp;
 class Enrollment {
+
 public:
-    // copy constructor    
     Enrollment(Employee& employee, Course& course) : employee_(employee), course_(course) {}
 
-
     ~Enrollment() {}
-
 
     Employee& employee_;
     Course& course_;
@@ -21,20 +12,23 @@ public:
 
 
 
-class VirtualExampleFunction {
+class VirtualView {
+
 public:
     virtual void view() = 0;
 };
 
 
-class EnrollmentManager : public VirtualExampleFunction {
+class EnrollmentManager : public VirtualView {
+
 public:
+
     EnrollmentManager() {}
+
     ~EnrollmentManager() {}
 
-
-
     void selectCourse() {
+
         int id;
         ReportGenerator<Course> courseReport;
 
@@ -48,21 +42,21 @@ public:
             return course1->getId() < course2->getId();
             });
 
-        // lambda function
         auto it = find_if(courses.begin(), courses.end(), [id](const Course* course) {
             return course->getId() == id;
             });
 
         if (it != courses.end()) {
             Course* selectedCourse = *it;
-            cout << "Course found: ";
 
+            cout << "Course found: ";
             cout << "\n\n " << setw(columnLengths[0]) << selectedCourse->getId() << " | "
                 << setw(columnLengths[1]) << selectedCourse->getTitle() << " | "
                 << setw(columnLengths[2]) << selectedCourse->getDescription() << " | "
                 << setw(columnLengths[3]) << selectedCourse->getInstructor() << " | "
                 << setw(columnLengths[4]) << selectedCourse->getStartDate() << " | "
                 << setw(columnLengths[5]) << selectedCourse->getEndDate() << " |\n";
+
             currentCourse_ = selectedCourse;
             logger->log("Course " + to_string(currentCourse_->getId()) + " selected");
         }
@@ -89,15 +83,14 @@ public:
             return emp1->getId() < emp2->getId();
             });
 
-        // lambda function
         auto it = find_if(employees.begin(), employees.end(), [id](const Employee* emp) {
             return emp->getId() == id;
             });
 
         if (it != employees.end()) {
             Employee* selectedEmployee = *it;
-            cout << "Employee found: ";
 
+            cout << "Employee found: ";
             cout << "\n\n " << setw(columnLengths[0]) << selectedEmployee->getId() << " | "
                 << setw(columnLengths[1]) << selectedEmployee->getName() << " | "
                 << setw(columnLengths[2]) << selectedEmployee->getPosition() << " | "
@@ -117,7 +110,6 @@ public:
 
         return;
     }
-
 
 
     void viewCurrent() {
@@ -153,7 +145,7 @@ public:
         system("pause");
     }
 
-    // add without gui, by just getting arguments
+
     void addToEnroll(Employee* employeeT, Course* courseT) {
         enrollments_.push_back(new Enrollment(*employeeT, *courseT));
         logger->log("Employee " + to_string(employeeT->getId()) + " enrolled in course " + to_string(courseT->getId()));
@@ -162,9 +154,8 @@ public:
     void enroll() {
         selectEmployee();
         selectCourse();
+
         if (currentCourse_ != nullptr && currentEmployee_ != nullptr) {
-
-
             cout << "\nEmployee enrolled in course\n";
             system("pause");
 
@@ -208,29 +199,29 @@ public:
     }
 
 
-
     auto getEnrollments() {
         return enrollments_;
     }
+
     auto setEnrollments(vector<Enrollment*> enrollments) {
         enrollments_ = enrollments;
     }
+
     auto clearEnrollments() {
         enrollments_.clear();
     }
 
 
 private:
-    // have reference to curernt course and employee
+
     Course* currentCourse_;
     Employee* currentEmployee_;
     vector<Enrollment*> enrollments_;
 
-
 };
 
-
 EnrollmentManager enrollManager;
+
 
 void enrollManagerMenu() {
     vector<string> menuData = { "Enroll Employee", "Unenroll Employee", "View Enrollments" ,"Return" };

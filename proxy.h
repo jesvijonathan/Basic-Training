@@ -1,11 +1,14 @@
 
 class TrainingManagerProxy {
+
 private:
     TrainingManager* trainingManager;
+
     string username, password;
     char ch;
 
 public:
+
     TrainingManagerProxy() {
         trainingManager = nullptr;
     }

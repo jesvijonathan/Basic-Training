@@ -9,7 +9,6 @@
 
 class Quit {
 public:
-    //base class fun
     void quit_seq() {
         logger->log("Application Exited");
         cout << "\n\nExiting...";
@@ -20,26 +19,44 @@ public:
     }
 };
 
-// inheritence
+
 class TrainingManager : public Quit {
+
 private:
+
     vector<string> menuOptions;
 
-
 public:
+
     TrainingManager() {
         menuOptions = { "Add new course", "Add new employee", "Update Details", "Enroll employee in course", "Generate report","Save", "Load", "Exit" };
     }
+
     TrainingManager(vector<string> menuOptions) {
         this->menuOptions = menuOptions;
     }
-    //deri class fun
+
     void quit_seq() {
         cout << "asbtract class for above quit_seq ";
     }
 
+    void loadOnEnter() {
+        if (auto_load) {
+            try {
+                PersistentSave::globalLoad();
+                logger->log("Loaded");
+            }
+            catch (exception e) {
+                cout << "\n\nError while loading !";
+            }
+        }
+    }
+
     void run() {
+        loadOnEnter();
+
         Menu menu(menuOptions, "Training Management Application\n\nMain Menu\n", "Press 'Enter' to select an option or 'q' to quit :");
+
         int selectedOption = menu.run();
 
         if (selectedOption < menuOptions.size() - 1) {
@@ -91,7 +108,6 @@ public:
             }
         }
         else {
-            // abstract class
             quit();
         }
     }

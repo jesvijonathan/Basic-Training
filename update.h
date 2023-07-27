@@ -1,17 +1,9 @@
 
-#include <iostream>
-#include <string>
-#include <vector>
-#include <fstream>
-#include <algorithm>
-#include <windows.h>
-#include <conio.h>
-#include <stdlib.h>   
-#include <map>
-
 
 void deleteCourse() {
     int id;
+    char choice;
+
     cout << "\nEnter course id to delete: ";
     cin >> id;
 
@@ -19,13 +11,13 @@ void deleteCourse() {
         return course1->getId() < course2->getId();
         });
 
-    // lambda function
     auto it = find_if(courses.begin(), courses.end(), [id](const Course* course) {
         return course->getId() == id;
         });
 
     if (it != courses.end()) {
         Course* selectedCourse = *it;
+
         cout << "Course found: ";
         cout << "\n\n ID : " << selectedCourse->getId()
             << "\n Title : " << selectedCourse->getTitle()
@@ -35,7 +27,6 @@ void deleteCourse() {
             << "\n End Date : " << selectedCourse->getEndDate() << "\n\n";
 
         cout << "\nAre you sure you want to delete this course? (y/n) : ";
-        char choice;
         cin >> choice;
 
         if (choice == 'y') {
@@ -49,16 +40,16 @@ void deleteCourse() {
     }
     else {
         logger->log("Course " + to_string(id) + " not found");
-
     }
 }
 
 void deleteEmployee() {
-    cout << "\nEnter employee id to delete : ";
     int id;
+    char choice;
+
+    cout << "\nEnter employee id to delete : ";
     cin >> id;
 
-    // lambda function
     auto it = find_if(employees.begin(), employees.end(), [id](const Employee* employee) {
         return employee->getId() == id;
         });
@@ -75,7 +66,6 @@ void deleteEmployee() {
             << "\n Percent : " << selectedEmployee->getPercent() << "\n\n";
 
         cout << "Are you sure you want to delete this employee? (y/n) : ";
-        char choice;
         cin >> choice;
 
         if (choice == 'y') {

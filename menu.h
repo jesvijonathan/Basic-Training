@@ -1,8 +1,4 @@
 
-#include <conio.h> 
-
-using namespace std;
-
 class Menu {
 
 public:
@@ -18,8 +14,8 @@ public:
 
     void display() const {
         system("cls");
-
         cout << option_text << "\n";
+
         for (size_t i = 0; i < options.size(); ++i) {
             if (i == currentOption) {
                 cout << "* " << options[i] << "\n";

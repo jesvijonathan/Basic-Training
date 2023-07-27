@@ -1,7 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <mutex>
-
 using namespace std;
 
 int* getTime() {

@@ -1,5 +1,6 @@
 // Training Management Application
 
+// Main headers
 #include <iostream>
 #include <string>
 #include <vector> 
@@ -8,7 +9,12 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <iomanip>   
+#include <map>
+#include <fstream>
+#include <sstream>
+#include <mutex>
 
+// Macros
 #define KEY_UP 72
 #define KEY_DOWN 80
 #define KEY_LEFT 75
@@ -18,13 +24,14 @@
 #define KEY_Q 113
 #define KEY_S 115
 
+#define auto_load false
 #define default_username "wl2028"
 #define default_password "123"
 std::string current_user;
 
+// Custom headers
 #include "logger.h"
 #define logger Logger::getInstance() 
-
 #include "menu.h"
 #include "course.h"
 #include "employee.h"
@@ -42,10 +49,8 @@ using namespace std;
 using namespace crs;
 using namespace emp;
 
-void SetConsoleTitle(const std::string& title)
-{
+void SetConsoleTitle(const std::string& title) {
     SetConsoleTitleA(title.c_str());
-
 }
 
 int main() {
@@ -64,20 +69,18 @@ int main() {
             goto retryCredentials;
         }
 
-        // persistentSave.globalLoad();
         while (true) {
             logger->log("Training Manager Invoked");
             trainingManagerProxy.run();
         }
-
     }
-    // exception hadnling
     catch (exception& e) {
         logger->log("Exception : " + string(e.what()));
     }
     catch (...) {
         logger->log("Exception : Unknown");
     }
+
     system("pause");
     return 0;
 }
