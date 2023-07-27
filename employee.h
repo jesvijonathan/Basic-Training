@@ -18,14 +18,14 @@ public:
     Employee(const string& name, const string& position, const string& department, const string& joinDate, const int& age, const int& percent)
         : name(name), position(position), department(department), joinDate(joinDate), age(age), percent(percent) {
         id = ++currentId;
-        logger->log("Employee " + to_string(id) + " created");
+        logger->log("Employee " + to_string(id) + " instance created");
     }
     Employee() {
 
     }
     // destructor
     ~Employee() {
-        logger->log("Employee " + to_string(id) + " deleted");
+        logger->log("Employee " + to_string(id) + " instance deleted");
         currentId--;
     }
 
@@ -116,7 +116,7 @@ void employeeMenu() {
     int selectedOption = 0;
 
     while (true) {
-        menuOptions = { "Name : " + menuData[1], "Position : " + menuData[2], "Department : " + menuData[3], "Join Date : " + menuData[4], "Age : " + menuData[5], "Percent : " + menuData[6], "Save" };
+        menuOptions = { "Name : " + menuData[1], "Position : " + menuData[2], "Department : " + menuData[3], "Join Date : " + menuData[4], "Age : " + menuData[5], "Percent : " + menuData[6], "Save", "Return" };
         Menu menu(
             menuOptions,
             "\n\nMain Menu / Add Empoyee :\n\n  ID : " + menuData[0],
@@ -161,6 +161,7 @@ void employeeMenu() {
                 employee->setAge(stoi(menuData[5]));
                 employee->setPercent(stoi(menuData[6]));
                 employees.push_back(new Employee(*employee));
+                logger->log("Employee " + to_string(employee->getId()) + " created");
             }
             catch (exception e) {
                 cout << "Invalid input\n";
@@ -168,16 +169,16 @@ void employeeMenu() {
                 system("pause");
                 return;
             }
-            logger->log("Employee created & saved");
             return;
             break;
+        case 7:
+        case -1:
         default:
             employee->~Employee();
-            logger->log("Employee not created");
+            logger->log("Employee creation cancelled");
             return;
         }
     }
-
 
     return;
 }

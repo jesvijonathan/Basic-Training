@@ -93,7 +93,7 @@ void deleteEmployee() {
 }
 
 void updateMenu() {
-    vector<string> menuOptions = { "Update Course", "Update Employee", "Back" };
+    vector<string> menuOptions = { "Delete Course", "Delete Employee", "Return" };
     ReportGenerator<Course> courseReport;
 
     while (true) {

@@ -64,6 +64,7 @@ public:
                 << setw(columnLengths[4]) << selectedCourse->getStartDate() << " | "
                 << setw(columnLengths[5]) << selectedCourse->getEndDate() << " |\n";
             currentCourse_ = selectedCourse;
+            logger->log("Course " + to_string(currentCourse_->getId()) + " selected");
         }
         else {
             cout << "Course with id " << id << " not found ! \n\n";
@@ -106,6 +107,7 @@ public:
                 << setw(columnLengths[6]) << selectedEmployee->getPercent() << " |\n";
 
             currentEmployee_ = selectedEmployee;
+            logger->log("Employee " + to_string(currentEmployee_->getId()) + " selected");
         }
         else {
             cout << "Employee with id " << id << " not found ! \n\n";
@@ -115,6 +117,8 @@ public:
 
         return;
     }
+
+
 
     void viewCurrent() {
         if (currentCourse_ != nullptr && currentEmployee_ != nullptr) {
@@ -127,6 +131,34 @@ public:
         system("pause");
     }
 
+    void view() {
+        cout << "Enrollments: \n\n";
+        cout << "Employee_ID | Employee_Name | Course_ID | Course_Title\n";
+        for (const auto& enrollment : enrollments_) {
+            cout << " " << setw(11) << enrollment->employee_.getId() << " | "
+                << setw(13) << enrollment->employee_.getName() << " | "
+                << setw(9) << enrollment->course_.getId() << " | "
+                << setw(12) << enrollment->course_.getTitle() << " | \n";
+        }
+    }
+
+    void viewEnrollment() {
+        if (enrollments_.size() > 0) {
+            view();
+        }
+        else {
+            cout << "No enrollments\n";
+        }
+        cout << "\n";
+        system("pause");
+    }
+
+    // add without gui, by just getting arguments
+    void addToEnroll(Employee* employeeT, Course* courseT) {
+        enrollments_.push_back(new Enrollment(*employeeT, *courseT));
+        logger->log("Employee " + to_string(employeeT->getId()) + " enrolled in course " + to_string(courseT->getId()));
+    }
+
     void enroll() {
         selectEmployee();
         selectCourse();
@@ -137,24 +169,15 @@ public:
             system("pause");
 
             enrollments_.push_back(new Enrollment(*currentEmployee_, *currentCourse_));
+            logger->log("Employee " + to_string(currentEmployee_->getId()) + " enrolled in course " + to_string(currentCourse_->getId()));
         }
         else {
             cout << "course or employee not selected\n";
-
         }
+        currentCourse_ = nullptr;
+        currentEmployee_ = nullptr;
     }
 
-    // pointer function
-    void view() {
-        cout << "Enrollments: \n\n";
-        cout << "EMPLOYEE ID | EMPLOYEE NAME | COURSE ID | COURSE TITLE\n";
-        for (int i = 0; i < enrollments_.size(); i++) {
-            cout << enrollments_[i]->employee_.getId() << " | "
-                << enrollments_[i]->employee_.getName() << " | "
-                << enrollments_[i]->course_.getId() << " | "
-                << enrollments_[i]->course_.getTitle() << "\n";
-        }
-    }
 
     void unenroll() {
         if (enrollments_.size() > 0) {
@@ -175,6 +198,7 @@ public:
         if (it != enrollments_.end()) {
             enrollments_.erase(it);
             cout << "Employee unenrolled !\n";
+            logger->log("Employee " + to_string(id) + " unenrolled");
         }
         else {
             cout << "Employee with id " << id << " not found ! \n\n";
@@ -183,22 +207,16 @@ public:
         system("pause");
     }
 
-    void viewEnrollment() {
-        if (enrollments_.size() > 0) {
-            view();
-        }
-        else {
-            cout << "No enrollments\n";
-        }
-        cout << "\n";
-        system("pause");
-    }
+
 
     auto getEnrollments() {
         return enrollments_;
     }
     auto setEnrollments(vector<Enrollment*> enrollments) {
         enrollments_ = enrollments;
+    }
+    auto clearEnrollments() {
+        enrollments_.clear();
     }
 
 
@@ -215,7 +233,7 @@ private:
 EnrollmentManager enrollManager;
 
 void enrollManagerMenu() {
-    vector<string> menuData = { "Enroll Employee", "Unenroll Employee", "View Enrollments" };
+    vector<string> menuData = { "Enroll Employee", "Unenroll Employee", "View Enrollments" ,"Return" };
     int selectedOption = 0;
 
     while (true) {
@@ -235,10 +253,10 @@ void enrollManagerMenu() {
             logger->log("View Enrollments");
             enrollManager.viewEnrollment();
             break;
+        case 3:
         case -2:
-            logger->log("Enrollment Menu Exited");
-            return;
         default:
+            logger->log("Returning to Main Menu");
             return;
         }
     }

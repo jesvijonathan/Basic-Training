@@ -37,15 +37,17 @@ public:
     }
 
 
-    void viewAll() {
+    static void viewAll() {
         cout << " Courses Report -\n";
         viewCourses();
         cout << "\n\n Employee Report -\n";
         viewEmployees();
-        system("notepad.exe log.txt");
+        // cout << "\n\n Enrollment Report -\n";
+        // enrollManager.viewEnrollment();
+        system("notepad.exe data\\log.log");
     }
 
-    auto viewCourses() {
+    static auto viewCourses() {
         int* columnLengths = new int[7] {0};
 
         vector<string> headers = { "ID", "Title", "Description", "Instructor", "Start Date", "End Date" };
@@ -59,7 +61,7 @@ public:
         return columnLengths;
     }
 
-    auto viewEmployees() {
+    static auto viewEmployees() {
         int* columnLengths = new int[7] {0};
 
         vector<string> headers = { "ID", "Name", "Position", "Department", "Join Date", "Age", "Percent" };
@@ -76,9 +78,9 @@ public:
 
 
 void reportMenu() {
-    vector<string> menuOptions = { "View Courses", "View Employees", "Generate Report", "Return to Main Menu" };
+    vector<string> menuOptions = { "View Courses", "View Employees", "Generate Report", "Return" };
 
-    ReportGenerator<Course> courseReport;
+
 
     while (true) {
         Menu menu(menuOptions, "\n\nMain Menu / Generate Report :\n\n", "Press 'Enter' to select an option or 'q' to quit :");
@@ -88,18 +90,17 @@ void reportMenu() {
         switch (selectedOption) {
         case 0:
             cout << "Courses \n\n";
-            courseReport.viewCourses();
+            ReportGenerator<void>::viewCourses();
             break;
         case 1:
             cout << "Employees \n\n";
-            courseReport.viewEmployees();
+            ReportGenerator<void>::viewEmployees();
             break;
         case 2:
             cout << "Courses, Employees, Logs\n\n";
-            //courseReport.generateEmployeeReport();
             generateEmployeeReport();
             generateCourseReport();
-            courseReport.viewAll();
+            ReportGenerator<void>::viewAll();
             break;
         case 3:
         case -2:

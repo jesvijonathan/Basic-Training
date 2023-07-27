@@ -2,6 +2,8 @@
 class TrainingManagerProxy {
 private:
     TrainingManager* trainingManager;
+    string username, password;
+    char ch;
 
 public:
     TrainingManagerProxy() {
@@ -9,15 +11,13 @@ public:
     }
 
     void authenticate() {
-        //return run();
-
+        //return run(); 
         system("cls");
         cout << "Training Management Application | Authentication\n\n";
-        string username, password;
         cout << "Enter username: ";
         cin >> username;
         cout << "Enter password: ";
-        char ch;
+
         while ((ch = _getch()) != KEY_ENTER) {
             if (ch == KEY_BACKSPACE) {
                 if (!password.empty()) {
@@ -32,6 +32,8 @@ public:
         }
 
         if (username == default_username && password == default_password) {
+            current_user = username;
+            logger->log("User " + username + " logged in");
             return run();
         }
         else {
@@ -42,7 +44,7 @@ public:
 
     void run() {
         if (!trainingManager) {
-            logger->log("Initializing Training Manager...");
+            logger->log("Initializing Training Manager");
             trainingManager = new TrainingManager();
         }
         trainingManager->run();

@@ -1,15 +1,19 @@
 
 #include <conio.h> 
 
-
 using namespace std;
 
 class Menu {
 
 public:
-    Menu(const vector<string>& options, const string& option_text = "Select an option :",
-        const string& option_enter = "", const size_t currentOption = 0) :
-        options(options), option_text(option_text), option_enter(option_enter), currentOption(currentOption) {
+    Menu(const vector<string>& options,
+        const string& option_text = "Select an option :",
+        const string& option_enter = "",
+        const size_t currentOption = 0) :
+        options(options),
+        option_text(option_text),
+        option_enter(option_enter),
+        currentOption(currentOption) {
     }
 
     void display() const {
@@ -62,10 +66,7 @@ public:
                 cout << "Invalid input !\n";
                 break;
             }
-
         }
-
-
     }
 
 private:

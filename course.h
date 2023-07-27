@@ -18,14 +18,14 @@ public:
     Course(const string& title, const string& description, const string& instructor, const string& startDate, const string& endDate)
         : title(title), description(description), instructor(instructor), startDate(startDate), endDate(endDate) {
         id = ++currentId;
-        logger->log("Course " + to_string(id) + " created");
+        logger->log("Course " + to_string(id) + " instance created");
     }
     Course() {
 
     }
     // destructor
     ~Course() {
-        logger->log("Course " + to_string(id) + " deleted");
+        logger->log("Course " + to_string(id) + " instance deleted");
         currentId--;
 
     }
@@ -109,7 +109,7 @@ void courseMenu() {
 
 
     while (1) {
-        menuOptions = { "Title : " + menuData[1], "Description : " + menuData[2], "Instructor : " + menuData[3], "Start Date : " + menuData[4], "End Date : " + menuData[5], "Save" };
+        menuOptions = { "Title : " + menuData[1], "Description : " + menuData[2], "Instructor : " + menuData[3], "Start Date : " + menuData[4], "End Date : " + menuData[5], "Save", "Return" };
         Menu menu(
             menuOptions,
             "\n\nMain Menu / Add Course :\n\n  ID : " + menuData[0],
@@ -149,15 +149,17 @@ void courseMenu() {
                 course->setStartDate(menuData[4]);
                 course->setEndDate(menuData[5]);
                 courses.push_back(course);
+                logger->log("Course " + to_string(course->getId()) + " created");
             }
             catch (exception e) {
                 cout << "Invalid input\n";
                 logger->log("Course not created");
                 system("pause");
             }
-            logger->log("Course created & saved");
             return;
             break;
+        case 6:
+        case -1:
         default:
             delete course;
             logger->log("Course creation cancelled");
@@ -165,9 +167,10 @@ void courseMenu() {
         }
     }
 
-    logger->log("Returning to main menu");
     return;
 }
+
+
 // names space
 namespace crs {
     // passing by reference | function overloading
@@ -200,11 +203,9 @@ namespace crs {
 
     }
     void generateCourseReport() {
-
+        logger->log("Course Report Generated");
 
         // idk what to do for course report
-
-
 
     };
 };

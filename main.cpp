@@ -7,8 +7,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>
-#include <iomanip>  
-
+#include <iomanip>   
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -21,21 +20,18 @@
 
 #define default_username "wl2028"
 #define default_password "123"
+std::string current_user;
 
 #include "logger.h"
-#define logger Logger::getInstance()
-
+#define logger Logger::getInstance() 
 
 #include "menu.h"
 #include "course.h"
 #include "employee.h"
 #include "report.h"
 #include "enrollment.h"
-#include "update.h"
-
-#include "persistentSave.h"
-PersistentSave persistentSave;
-
+#include "update.h" 
+#include "persistentSave.h" 
 #include "trainingManager.h"
 #include "proxy.h"
 
@@ -52,31 +48,10 @@ void SetConsoleTitle(const std::string& title)
 
 }
 
-int* getTime() {
-    time_t now = time(0);
-    tm* ltm = localtime(&now);
-    int currentDay = ltm->tm_mday;
-    int currentMonth = 1 + ltm->tm_mon;
-    int currentYear = 1900 + ltm->tm_year;
-    int currentHour = ltm->tm_hour;
-    int currentMinute = ltm->tm_min;
-    int currentSecond = ltm->tm_sec;
-
-    int* dateArr = new int[3];
-    dateArr[0] = currentDay;
-    dateArr[1] = currentMonth;
-    dateArr[2] = currentYear;
-    dateArr[3] = currentHour;
-    dateArr[4] = currentMinute;
-    dateArr[5] = currentSecond;
-
-    return dateArr;
-}
-
 int main() {
     try {
         SetConsoleTitle("Worldline - Training Management Application");
-        logger->log("Application Started");
+        logger->log("\n\nApplication Started");
 
         TrainingManagerProxy trainingManagerProxy;
 
@@ -86,8 +61,6 @@ int main() {
         }
         catch (string e) {
             logger->log("Exception : " + e);
-            cout << e << "\n";
-            system("pause");
             goto retryCredentials;
         }
 

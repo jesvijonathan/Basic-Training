@@ -35,7 +35,7 @@ public:
     }
     //deri class fun
     void quit_seq() {
-        cout << "asbtract class for above quit_seq | this will not be printed";
+        cout << "asbtract class for above quit_seq ";
     }
 
     void run() {
@@ -66,9 +66,9 @@ public:
                 break;
             case Save:
                 try {
+                    PersistentSave::globalSave();
                     logger->log("Saved");
-                    persistentSave.globalSave();
-                    cout << "\n\nSaved !";
+                    cout << "\n\nSaved !\n\n";
                 }
                 catch (exception e) {
                     cout << "\n\nError while saving !";
@@ -77,11 +77,9 @@ public:
                 break;
             case Load:
                 try {
+                    PersistentSave::globalLoad();
                     logger->log("Loaded");
-                    persistentSave.globalLoad();
-                    cout << "\n\nLoaded !";
-
-
+                    cout << "\n\nLoaded !\n\n";
                 }
                 catch (exception e) {
                     cout << "\n\nError while loading !";
