@@ -1,0 +1,377 @@
+[27:7:2023:18:32:22] 
+
+Application Started
+[27:7:2023:18:33:44] Exception : 
+
+Invalid username or password !
+[27:7:2023:18:33:55] Exception : 
+
+Invalid username or password !
+[27:7:2023:18:34:2] 
+
+Application Started
+[27:7:2023:18:34:6] User wl2028 logged in
+[27:7:2023:18:34:6] Initializing Training Manager
+[27:7:2023:18:34:27] Course Menu
+[27:7:2023:18:34:27] Course 1 instance created
+[27:7:2023:18:34:42] Course 1 created
+[27:7:2023:18:34:42] Training Manager Invoked
+[27:7:2023:18:34:44] Generate report
+[27:7:2023:18:34:51] Training Manager Invoked
+[27:7:2023:18:34:51] Course Menu
+[27:7:2023:18:34:51] Course 2 instance created
+[27:7:2023:18:35:8] Course 2 created
+[27:7:2023:18:35:8] Training Manager Invoked
+[27:7:2023:18:35:10] Employee Menu
+[27:7:2023:18:35:10] Employee 1 instance created
+[27:7:2023:18:35:25] Employee 1 created
+[27:7:2023:18:35:25] Training Manager Invoked
+[27:7:2023:18:35:26] Employee Menu
+[27:7:2023:18:35:26] Employee 2 instance created
+[27:7:2023:18:36:2] Employee 2 created
+[27:7:2023:18:36:2] Training Manager Invoked
+[27:7:2023:18:36:3] Employee Menu
+[27:7:2023:18:36:3] Employee 3 instance created
+[27:7:2023:18:36:29] Employee 3 created
+[27:7:2023:18:36:29] Training Manager Invoked
+[27:7:2023:18:36:31] Generate report
+[27:7:2023:18:36:57] Employee 1 instance deleted
+[27:7:2023:18:36:57] Employee 2 instance deleted
+[27:7:2023:18:36:57] Employee 3 instance deleted
+[27:7:2023:18:36:57] Employee 3 instance deleted
+[27:7:2023:18:36:57] Employee 1 instance deleted
+[27:7:2023:18:36:57] Employee 2 instance deleted
+[27:7:2023:18:36:57] Course Report Generated
+[27:7:2023:18:37:27] Training Manager Invoked
+[27:7:2023:18:37:30] Enroll employee Menu
+[27:7:2023:18:37:32] Returning to Main Menu
+[27:7:2023:18:37:32] Training Manager Invoked
+[27:7:2023:18:37:35] Update Menu
+[27:7:2023:18:37:41] Course 2 deleted
+[27:7:2023:18:37:41] Course 2 instance deleted
+[27:7:2023:18:37:43] Training Manager Invoked
+[27:7:2023:18:37:44] Generate report
+[27:7:2023:18:37:46] Training Manager Invoked
+[27:7:2023:18:37:49] Enroll employee Menu
+[27:7:2023:18:37:50] Enroll Employee
+[27:7:2023:18:37:55] Employee 1 selected
+[27:7:2023:18:37:58] Course 1 selected
+[27:7:2023:18:37:59] Employee 1 enrolled in course 1
+[27:7:2023:18:38:0] Enroll Employee
+[27:7:2023:18:38:2] Employee 3 selected
+[27:7:2023:18:38:3] Course 1 selected
+[27:7:2023:18:38:4] Employee 3 enrolled in course 1
+[27:7:2023:18:38:5] View Enrollments
+[27:7:2023:18:38:16] Returning to Main Menu
+[27:7:2023:18:38:16] Training Manager Invoked
+[27:7:2023:18:38:18] Generate report
+[27:7:2023:18:38:20] Training Manager Invoked
+[27:7:2023:18:38:33] Course 2 instance created
+[27:7:2023:18:38:33] Course 3 instance created
+[27:7:2023:18:38:33] Course 4 instance created
+[27:7:2023:18:38:33] Courses data loaded
+[27:7:2023:18:38:33] Employee -2 instance created
+[27:7:2023:18:38:33] Employee -1 instance created
+[27:7:2023:18:38:33] Employee 0 instance created
+[27:7:2023:18:38:33] Employee 1 instance created
+[27:7:2023:18:38:33] Employees data loaded
+[27:7:2023:18:38:33] Employee 1 enrolled in course 1
+[27:7:2023:18:38:33] Employee 2 enrolled in course 2
+[27:7:2023:18:38:33] Employee 3 enrolled in course 1
+[27:7:2023:18:38:33] Enrollment data loaded
+[27:7:2023:18:38:33] Loaded
+[27:7:2023:18:38:35] Training Manager Invoked
+[27:7:2023:18:38:37] Generate report
+[27:7:2023:18:38:40] Training Manager Invoked
+[27:7:2023:18:38:53] Course Menu
+[27:7:2023:18:38:53] Course 5 instance created
+[27:7:2023:18:38:56] Course 5 instance deleted
+[27:7:2023:18:38:56] Course creation cancelled
+[27:7:2023:18:38:56] Training Manager Invoked
+[27:7:2023:18:39:0] Courses data loaded
+[27:7:2023:18:39:0] Employees data loaded
+[27:7:2023:18:39:0] Enrollment data loaded
+[27:7:2023:18:39:0] Loaded
+[27:7:2023:18:39:1] Training Manager Invoked
+[27:7:2023:18:39:1] Course Menu
+[27:7:2023:18:39:1] Course 5 instance created
+[27:7:2023:18:39:3] Course 5 instance deleted
+[27:7:2023:18:39:3] Course creation cancelled
+[27:7:2023:18:39:3] Training Manager Invoked
+[27:7:2023:18:39:4] Generate report
+[27:7:2023:18:39:11] Training Manager Invoked
+[27:7:2023:18:39:12] Application Exited
+[27:7:2023:18:39:15] 
+
+Application Started
+[27:7:2023:18:39:17] User wl2028 logged in
+[27:7:2023:18:39:17] Initializing Training Manager
+[27:7:2023:18:39:21] Course Menu
+[27:7:2023:18:39:21] Course 1 instance created
+[27:7:2023:18:39:22] Course 1 instance deleted
+[27:7:2023:18:39:22] Course creation cancelled
+[27:7:2023:18:39:22] Training Manager Invoked
+[27:7:2023:18:39:23] Course Menu
+[27:7:2023:18:39:23] Course 1 instance created
+[27:7:2023:18:39:23] Course 1 instance deleted
+[27:7:2023:18:39:23] Course creation cancelled
+[27:7:2023:18:39:23] Training Manager Invoked
+[27:7:2023:18:39:24] Application Exited
+[27:7:2023:18:39:26] 
+
+Application Started
+[27:7:2023:18:39:29] User wl2028 logged in
+[27:7:2023:18:39:29] Initializing Training Manager
+[27:7:2023:18:39:29] Course Menu
+[27:7:2023:18:39:29] Course 1 instance created
+[27:7:2023:18:39:36] Course 1 created
+[27:7:2023:18:39:36] Training Manager Invoked
+[27:7:2023:18:39:37] Course Menu
+[27:7:2023:18:39:37] Course 2 instance created
+[27:7:2023:18:39:42] Course 2 created
+[27:7:2023:18:39:42] Training Manager Invoked
+[27:7:2023:18:39:42] Employee Menu
+[27:7:2023:18:39:42] Employee 1 instance created
+[27:7:2023:18:39:54] Employee 1 created
+[27:7:2023:18:39:54] Training Manager Invoked
+[27:7:2023:18:39:55] Employee Menu
+[27:7:2023:18:39:55] Employee 2 instance created
+[27:7:2023:18:40:9] Employee 2 created
+[27:7:2023:18:40:9] Training Manager Invoked
+[27:7:2023:18:40:11] Generate report
+[27:7:2023:18:40:14] Training Manager Invoked
+[27:7:2023:18:40:26] Courses data saved
+[27:7:2023:18:40:26] Employees data saved
+[27:7:2023:18:40:26] Enrollment data saved
+[27:7:2023:18:40:26] Saved
+[27:7:2023:18:40:28] Training Manager Invoked
+[27:7:2023:18:41:2] Application Exited
+[27:7:2023:18:41:5] 
+
+Application Started
+[27:7:2023:18:41:8] User wl2028 logged in
+[27:7:2023:18:41:8] Initializing Training Manager
+[27:7:2023:18:41:10] Course 1 instance created
+[27:7:2023:18:41:10] Course 2 instance created
+[27:7:2023:18:41:10] Courses data loaded
+[27:7:2023:18:41:10] Employee 1 instance created
+[27:7:2023:18:41:10] Employee 2 instance created
+[27:7:2023:18:41:10] Employees data loaded
+[27:7:2023:18:41:10] Enrollment data loaded
+[27:7:2023:18:41:10] Loaded
+[27:7:2023:18:41:10] Training Manager Invoked
+[27:7:2023:18:41:13] Generate report
+[27:7:2023:18:41:20] Training Manager Invoked
+[27:7:2023:18:41:23] Course Menu
+[27:7:2023:18:41:23] Course 3 instance created
+[27:7:2023:18:41:29] Course 3 created
+[27:7:2023:18:41:29] Training Manager Invoked
+[27:7:2023:18:41:31] Generate report
+[27:7:2023:18:41:33] Training Manager Invoked
+[27:7:2023:18:41:34] Enroll employee Menu
+[27:7:2023:18:41:35] Enroll Employee
+[27:7:2023:18:41:39] Enroll Employee
+[27:7:2023:18:41:42] Returning to Main Menu
+[27:7:2023:18:41:42] Training Manager Invoked
+[27:7:2023:18:43:13] Generate report
+[27:7:2023:18:43:14] Employee 1 instance deleted
+[27:7:2023:18:43:14] Employee 2 instance deleted
+[27:7:2023:18:43:14] Employee 2 instance deleted
+[27:7:2023:18:43:14] Employee 1 instance deleted
+[27:7:2023:18:43:14] Course Report Generated
+[27:7:2023:18:57:36] 
+
+Application Started
+[27:7:2023:18:57:43] User wl2028 logged in
+[27:7:2023:18:57:43] Initializing Training Manager
+[27:7:2023:18:57:49] Generate report
+[27:7:2023:18:57:50] Training Manager Invoked
+[27:7:2023:18:57:54] Course 1 instance created
+[27:7:2023:18:57:54] Course 2 instance created
+[27:7:2023:18:57:54] Courses data loaded
+[27:7:2023:18:57:54] Employee 1 instance created
+[27:7:2023:18:57:54] Employee 2 instance created
+[27:7:2023:18:57:54] Employees data loaded
+[27:7:2023:18:57:54] Enrollment data loaded
+[27:7:2023:18:57:54] Loaded
+[27:7:2023:18:57:54] Training Manager Invoked
+[27:7:2023:18:57:56] Generate report
+[27:7:2023:18:57:59] Employee 1 instance deleted
+[27:7:2023:18:57:59] Employee 2 instance deleted
+[27:7:2023:18:57:59] Employee 2 instance deleted
+[27:7:2023:18:57:59] Employee 1 instance deleted
+[27:7:2023:18:57:59] Course Report Generated
+[27:7:2023:18:58:21] Training Manager Invoked
+[27:7:2023:18:58:25] Update Menu
+[27:7:2023:18:58:29] Course 1 deleted
+[27:7:2023:18:58:29] Course 1 instance deleted
+[27:7:2023:18:58:34] Employee 2 deleted
+[27:7:2023:18:58:34] Training Manager Invoked
+[27:7:2023:22:9:59] 
+
+Application Started
+[27:7:2023:22:10:3] User wl2028 logged in
+[27:7:2023:22:10:3] Initializing Training Manager
+[27:7:2023:22:10:10] Course 1 instance created
+[27:7:2023:22:10:10] Course 2 instance created
+[27:7:2023:22:10:10] Courses data loaded
+[27:7:2023:22:10:10] Employee 1 instance created
+[27:7:2023:22:10:10] Employee 2 instance created
+[27:7:2023:22:10:10] Employees data loaded
+[27:7:2023:22:10:10] Enrollment data loaded
+[27:7:2023:22:10:10] Loaded
+[27:7:2023:22:10:10] Training Manager Invoked
+[27:7:2023:22:10:12] Generate report
+[27:7:2023:22:10:13] Employee 1 instance deleted
+[27:7:2023:22:10:13] Employee 2 instance deleted
+[27:7:2023:22:10:13] Employee 2 instance deleted
+[27:7:2023:22:10:13] Employee 1 instance deleted
+[27:7:2023:22:10:13] Course Report Generated
+[27:7:2023:22:10:30] Training Manager Invoked
+[27:7:2023:22:10:31] Application Exited
+[28:7:2023:23:10:15] 
+
+Application Started
+[28:7:2023:23:10:19] User wl2028 logged in
+[28:7:2023:23:10:19] Initializing Training Manager
+[28:7:2023:23:10:22] Generate report
+[28:7:2023:23:10:23] Training Manager Invoked
+[28:7:2023:23:10:24] Course 1 instance created
+[28:7:2023:23:10:24] Course 2 instance created
+[28:7:2023:23:10:24] Courses data loaded
+[28:7:2023:23:10:24] Employee 1 instance created
+[28:7:2023:23:10:24] Employee 2 instance created
+[28:7:2023:23:10:24] Employees data loaded
+[28:7:2023:23:10:24] Enrollment data loaded
+[28:7:2023:23:10:24] Loaded
+[28:7:2023:23:10:25] Training Manager Invoked
+[28:7:2023:23:10:26] Generate report
+[28:7:2023:23:10:33] Employee 1 instance deleted
+[28:7:2023:23:10:33] Employee 2 instance deleted
+[28:7:2023:23:10:33] Employee 2 instance deleted
+[28:7:2023:23:10:33] Employee 1 instance deleted
+[28:7:2023:23:10:33] Course Report Generated
+[28:7:2023:23:10:44] Training Manager Invoked
+[28:7:2023:23:11:4] Enroll employee Menu
+[28:7:2023:23:11:4] Enroll Employee
+[28:7:2023:23:11:14] Enroll Employee
+[28:7:2023:23:11:16] Enroll Employee
+[28:7:2023:23:11:17] Enroll Employee
+[28:7:2023:23:11:18] Enroll Employee
+[28:7:2023:23:11:19] Returning to Main Menu
+[28:7:2023:23:11:19] Training Manager Invoked
+[28:7:2023:23:11:19] Course Menu
+[28:7:2023:23:11:19] Course 3 instance created
+[28:7:2023:23:11:24] Course 3 instance deleted
+[28:7:2023:23:11:24] Course creation cancelled
+[28:7:2023:23:11:24] Training Manager Invoked
+[28:7:2023:23:11:25] Course 3 instance created
+[28:7:2023:23:11:25] Course 4 instance created
+[28:7:2023:23:11:25] Courses data loaded
+[28:7:2023:23:11:25] Employee -1 instance created
+[28:7:2023:23:11:25] Employee 0 instance created
+[28:7:2023:23:11:25] Employees data loaded
+[28:7:2023:23:11:25] Enrollment data loaded
+[28:7:2023:23:11:25] Loaded
+[28:7:2023:23:11:26] Training Manager Invoked
+[28:7:2023:23:11:27] Course 5 instance created
+[28:7:2023:23:11:27] Course 6 instance created
+[28:7:2023:23:11:27] Courses data loaded
+[28:7:2023:23:11:27] Employee 5 instance created
+[28:7:2023:23:11:27] Employee 6 instance created
+[28:7:2023:23:11:27] Employees data loaded
+[28:7:2023:23:11:27] Enrollment data loaded
+[28:7:2023:23:11:27] Loaded
+[28:7:2023:23:11:28] Training Manager Invoked
+[28:7:2023:23:11:29] Update Menu
+[28:7:2023:23:11:30] Course 0 not found
+[28:7:2023:23:11:31] Course 0 not found
+[28:7:2023:23:11:31] Employee 170 not found
+[28:7:2023:23:11:32] Course 0 not found
+[28:7:2023:23:11:32] Course 0 not found
+[28:7:2023:23:11:32] Training Manager Invoked
+[28:7:2023:23:11:34] Application Exited
+[28:7:2023:23:11:36] 
+
+Application Started
+[28:7:2023:23:11:38] Exception : 
+
+Invalid username or password !
+[28:7:2023:23:11:40] Exception : 
+
+Invalid username or password !
+[28:7:2023:23:11:44] Exception : 
+
+Invalid username or password !
+[31:7:2023:11:16:49] 
+
+Application Started
+[31:7:2023:11:16:51] User wl2028 logged in
+[31:7:2023:11:16:51] Initializing Training Manager
+[31:7:2023:11:16:56] Course 1 instance created
+[31:7:2023:11:16:56] Course 2 instance created
+[31:7:2023:11:16:56] Courses data loaded
+[31:7:2023:11:16:56] Employee 1 instance created
+[31:7:2023:11:16:56] Employee 2 instance created
+[31:7:2023:11:16:56] Employees data loaded
+[31:7:2023:11:16:56] Enrollment data loaded
+[31:7:2023:11:16:56] Loaded
+[31:7:2023:11:16:57] Training Manager Invoked
+[31:7:2023:11:16:58] Generate report
+[31:7:2023:11:17:1] Employee 1 instance deleted
+[31:7:2023:11:17:1] Employee 2 instance deleted
+[31:7:2023:11:17:1] Employee 2 instance deleted
+[31:7:2023:11:17:1] Employee 1 instance deleted
+[31:7:2023:11:17:1] Course Report Generated
+[31:7:2023:11:17:6] Training Manager Invoked
+[31:7:2023:11:17:11] Enroll employee Menu
+[31:7:2023:11:17:12] View Enrollments
+[31:7:2023:11:17:13] Enroll Employee
+[31:7:2023:11:17:14] Employee 1 selected
+[31:7:2023:11:17:15] Course 2 selected
+[31:7:2023:11:17:16] Employee 1 enrolled in course 2
+[31:7:2023:11:17:16] Enroll Employee
+[31:7:2023:11:17:17] Employee 2 selected
+[31:7:2023:11:17:18] Course 2 selected
+[31:7:2023:11:17:18] Employee 2 enrolled in course 2
+[31:7:2023:11:17:19] View Enrollments
+[31:7:2023:11:17:21] Returning to Main Menu
+[31:7:2023:11:17:21] Training Manager Invoked
+[31:7:2023:11:17:22] Courses data saved
+[31:7:2023:11:17:22] Employees data saved
+[31:7:2023:11:17:22] Enrollment data saved
+[31:7:2023:11:17:22] Saved
+[31:7:2023:11:17:23] Training Manager Invoked
+[31:7:2023:11:17:24] Application Exited
+[31:7:2023:11:17:26] 
+
+Application Started
+[31:7:2023:11:17:28] User wl2028 logged in
+[31:7:2023:11:17:28] Initializing Training Manager
+[31:7:2023:11:17:30] Generate report
+[31:7:2023:11:17:32] Training Manager Invoked
+[31:7:2023:11:17:33] Course 1 instance created
+[31:7:2023:11:17:33] Course 2 instance created
+[31:7:2023:11:17:33] Courses data loaded
+[31:7:2023:11:17:33] Employee 1 instance created
+[31:7:2023:11:17:33] Employee 2 instance created
+[31:7:2023:11:17:33] Employees data loaded
+[31:7:2023:11:17:33] Employee 1 enrolled in course 2
+[31:7:2023:11:17:33] Employee 2 enrolled in course 2
+[31:7:2023:11:17:33] Enrollment data loaded
+[31:7:2023:11:17:33] Loaded
+[31:7:2023:11:17:33] Training Manager Invoked
+[31:7:2023:11:17:35] Generate report
+[31:7:2023:11:17:36] Training Manager Invoked
+[31:7:2023:11:17:38] Enroll employee Menu
+[31:7:2023:11:17:39] View Enrollments
+[31:7:2023:11:20:49] Returning to Main Menu
+[31:7:2023:11:20:49] Training Manager Invoked
+[31:7:2023:11:20:52] Update Menu
+[31:7:2023:11:20:53] Training Manager Invoked
+[31:7:2023:11:21:2] Application Exited
+[20:8:2023:13:39:40] 
+
+Application Started
+[20:8:2023:13:39:45] User wl2028 logged in
+[20:8:2023:13:39:45] Initializing Training Manager

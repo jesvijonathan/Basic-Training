@@ -1,5 +1,5 @@
-Employee_ID,Employee_Name,Course_ID,Course_Title,
- 1 , Jesvi , 1 , C++ , 
- 2 , Jonathan , 2 , Python , 
- 3 , Akileshwar , 1 , C++ , 
- 4 , Surender V , 3 , Testing , 
+ID,Name,Position,Department,Join Date,Age,Percent
+ 1 , Jesvi , CPP Developer , Worldline , 27/7/2023 , 21 , 94 , 
+ 2 , Jonathan , Python Developer , Wordline , 27/7/2023 , 22 , 97 , 
+ 3 , Akileshwar , Cyber Security , Worldline , 27/7/2023 , 21 , 99 , 
+ 4 , Surender V , Fullstack , Wordline , 27/7/2023 , 20 , 96 , 
